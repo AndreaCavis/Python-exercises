@@ -486,7 +486,7 @@ print(stringSearch([(1, 'ab'), (2, 'bc'), (3, 'cd')], [(4, 'abcd'), (5, 'bcda')]
 
 # ----------------------------------------------------------------------------------
 
-# unit 2 ex 5
+# unit 1 ex 5
 def solution(arr1, arr2):
     # TODO: Implement this function
     result = []
