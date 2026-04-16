@@ -11,8 +11,42 @@ def solution(sentence):
 
     return result
 
+
 # more verbose but more efficient O(W * n)
-def long_solution(sentence):
+def best_solution(sentence):
+    words = [word.lower() for word in sentence.split()]
+    result = ""
+    
+    for word in words:
+        if len(word) % 2 != 0:
+            max_occurence = 0
+            recurring_chars = {}
+    
+            for i in range(len(word)):
+                char = word[i]
+
+                if char in recurring_chars:
+                    recurring_chars[char] += 1
+                else:
+                    recurring_chars[char] = 1
+
+                char_count = recurring_chars[char]
+                
+                if char_count > max_occurence:
+                        max_occurence = char_count
+                        
+            for char in recurring_chars:
+                if char_count == max_occurence:
+                    result += char
+                    break
+
+    return result
+
+
+# -------------------------------------------------------------------------------------
+
+# more verbose but more efficient O(W * n)
+def original_solution(sentence):
     words = [word.lower() for word in sentence.split()]
     result = ""
     
