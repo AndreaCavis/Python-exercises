@@ -523,6 +523,37 @@ print(solution([], []))
 
 # ----------------------------------------------------------------------------------
 
+def solution(sentence):
+    words = [word.lower() for word in sentence.split()]
+    result = ""
+    
+    for word in words:
+        if len(word) % 2 != 0:                  
+            # char = max(word, key=word.count)
+            # result += char
+            recurring_chars = {}    
+            max_recurrence = 0
+
+            for i in range(len(word)):
+                if word[i] in recurring_chars:
+                    recurring_chars[word[i]] += 1
+                else:
+                    recurring_chars[word[i]] = 1
+
+                if recurring_chars[word[i]] > max_recurrence:
+                    max_recurrence = recurring_chars[word[i]]
+
+            for char in recurring_chars:
+                if recurring_chars[char] == max_recurrence:
+                    result += char
+                    break
+
+    return result
+
+
+print(solution("Python is a high-level programming language")) # output ar
+
+# ----------------------------------------------------------------------------------
 
 
 # ----------------------------------------------------------------------------------
