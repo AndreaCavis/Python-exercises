@@ -1,7 +1,4 @@
 # Convert a text number string into its digit representation.
-
-print("PORCODIO")
-
 numString = "one two double six triple four five"
 
 textToNum = {
