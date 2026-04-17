@@ -1,0 +1,14 @@
+In this "Move Until Obstacle" game, the player begins at the start of a linear array of integers.
+The number at each position indicates the number of steps a player can move rightward, while an obstacle number is one upon which you can't land.
+The aim is to move as far right as possible until an obstacle stops you or you reach the array's end.
+
+Your function, solution(numbers, obstacle), needs to tally and return the number of moves needed to reach the array's end without encountering an obstacle.
+If the player encounters an obstacle, then the function should return the index at which the obstacle lies.
+
+For example, if the function is given the input: numbers = [2, 3, 3, 4, 2, 4] and obstacle = 4, it should return 5.
+This is because the player starts on the 0th index, takes 2 steps as indicated by the number at the 0th index (landing on the 2nd index),
+and then takes 3 more steps as indicated by the number at the 2nd index to land on the 5th index, which is the obstacle 4.
+
+If the function is given the input: numbers = [4, 1, 2, 2, 4, 2, 2] and obstacle = 2, the output should be 2.
+The player starts on the 0th index, takes 4 steps, lands on the 4th index, then takes 4 more steps, which brings the player outside the array,
+so in total the player makes 2 moves.
