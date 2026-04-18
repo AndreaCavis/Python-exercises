@@ -2,6 +2,7 @@ def solution(numbers):
     result = []
     n = len(numbers)
     
+    # for loop not while because I needed to potentially update each value at a time
     for i in range(n):
         current_position = numbers[i]
         

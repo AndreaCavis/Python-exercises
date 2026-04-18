@@ -3,8 +3,8 @@ def evaluatePath(numbers):
     position, moves = 0, 0
     total_reversals = 2
     opposite_direction = False
-    
-    while total_reversals > 0:
+    # "position < n" guards against index out of range
+    while position < n:
         value = numbers[position]
         # if 0, game ends
         if value == 0:
@@ -12,9 +12,9 @@ def evaluatePath(numbers):
         
         if opposite_direction:
             value = -value
-        
+
         next_position = position + value
-        
+
         if next_position < 0 or next_position >= n:
             opposite_direction = not opposite_direction
             total_reversals -= 1
@@ -24,7 +24,7 @@ def evaluatePath(numbers):
             continue
         else:
             position += value
-        
+
         moves += 1
 
     return (position, moves)
