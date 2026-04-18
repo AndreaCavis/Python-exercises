@@ -1,35 +1,31 @@
 def solution(numbers):
     result = []
     n = len(numbers)
-
+    
     for i in range(n):
-        if numbers[i] < 0:
+        current_position = numbers[i]
+        
+        if current_position < 0:
             result.append(-1)
             continue
-
-        end_range = min(i + 1 + numbers[i], n)
+            
+        start = i + 1
+        finish = min(start + current_position, n)
         obstacle = None
-
-        for j in range(i + 1, end_range):
+        
+        # check if steps from current_position land on obstacle
+        for j in range(start, finish):
             if numbers[j] < 0:
                 obstacle = j
                 break
-
+        #if they do, obstacle will be the index to replace the numbers[i] with  
         if obstacle is not None:
             result.append(obstacle)
         else:
-            result.append(numbers[i])
-
-               
+            # steps don't land in obstacle, append current value
+            result.append(current_position)
+      
     return result
-    
-
-# def find_obstacles(numbers):
-#     obstacles = []
-#     for i in range(len(numbers)):
-#         if numbers[i] < 0:
-#             obstacles.append(i)
-#     return obstacles
 
 
 # output [2, 2, -1, 1, 2].
