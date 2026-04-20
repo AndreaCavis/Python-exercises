@@ -9,12 +9,13 @@ def solution(board, obstacle):
         if board[position] == obstacle:
             moves.append(-1)
             continue
-        # THIS WORKS
+
         while position < n:
+            move += 1
             next_position = position + board[position]
             
             if next_position >= n:
-                moves.append(move + 1)
+                moves.append(move)
                 position += board[position]
                 continue
             else:
@@ -22,9 +23,10 @@ def solution(board, obstacle):
                     moves.append(-1)
                     break
                 position += board[position]
-                move += 1
 
     return moves
+
+
 
 #  output: [3, -1, 3, 1, 2, 2, 1]
 print(solution([5, 3, 2, 6, 2, 1, 7], 3))
