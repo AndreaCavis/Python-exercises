@@ -33,6 +33,16 @@ class Solution:
 def isAnagram(word1, word2):
     return sorted(word1) == sorted(word2)
 
+
 def isEmpty(array):
     return None if not array else array
+
+
+def count_chars(word):
+    char_frequency = {}
+    
+    for char in word:
+        char_frequency[char] = char_frequency.get(char, 0) + 1
+        
+    return char_frequency
         
