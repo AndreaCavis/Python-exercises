@@ -7,6 +7,7 @@ The challenge is to perform the addition without converting the entire strings i
 Finally, our function should return the resulting sum, represented as a string. 
 While it might seem daunting at first, don't worry -- we'll break it down step by step, mimicking how we manually add numbers.
 
+# -------------------------------------#
 
 Before we start coding, let's consider the strategy we're going to adopt. 
 You may recall that each digit in a number has a value, and the position of the digit determines its influence on the total value of the number.
