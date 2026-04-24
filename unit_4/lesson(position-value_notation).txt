@@ -1,0 +1,14 @@
+In today's task, we'll step into the world of large numbers, where, specifically, we are given two exceedingly large positive integers.
+However, these aren't your average, everyday large numbers. They are so vast they're represented as strings that can be up to 10,000 digits long!
+
+Accepting our mission means writing a Python function that binds these two "string-numbers" together. 
+The challenge is to perform the addition without converting the entire strings into integers.
+
+Finally, our function should return the resulting sum, represented as a string. 
+While it might seem daunting at first, don't worry -- we'll break it down step by step, mimicking how we manually add numbers.
+
+
+Before we start coding, let's consider the strategy we're going to adopt. 
+You may recall that each digit in a number has a value, and the position of the digit determines its influence on the total value of the number.
+
+*This system is called place-value notation.*
