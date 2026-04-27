@@ -1,16 +1,15 @@
 def solution(num1, num2):
-
     unit_first_num1 = num1[::-1]
     result = "0"
+    
     for j in range(len(unit_first_num1)):
         current_digit = unit_first_num1[j]
         current_product = multiply_strings(num2, current_digit) + ("0" * j)
         result = add_strings(result, current_product)
+   
+    return result.lstrip("0") or "0"
 
-        
-    return result
-    
-    
+
 def multiply_strings(num1: str, current_digit: str) -> str:
     digit, carry = int(current_digit), 0
     res = []
@@ -19,6 +18,8 @@ def multiply_strings(num1: str, current_digit: str) -> str:
         total = (n1 * digit) + carry
         carry = total // 10
         res.append(str(total % 10))
+    if carry > 0:
+        res.append(str(carry))
     return "".join(res[::-1])
     
 
@@ -35,9 +36,9 @@ def add_strings(string1, string2):
         j -= 1
     return string3
 
+# print(multiply_strings("99425", "9"))        
 
-print(multiply_strings("23425", "55666"))        
-
-print(add_strings("12345", "54321"))
+# print(add_strings("12345", "54321"))
 
 # print(solution("123", "456"))
+print(solution("0", "500"))
