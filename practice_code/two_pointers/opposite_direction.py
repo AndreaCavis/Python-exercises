@@ -13,6 +13,7 @@ def two_pointers_opposite_direction(arr, target):
 
     while left < right:
         current_sum = arr[left] + arr[right]
+        
         if current_sum == target:
             result.append(left)
             result.append(right)
@@ -22,7 +23,7 @@ def two_pointers_opposite_direction(arr, target):
         else:
             right -= 1
         
-    return [-1, -1]
+    return [-1, -1] # no matches found
 
 print(two_pointers_opposite_direction([1, 2, 3, 4, 6], 6)) # [1, 3]
 print(two_pointers_opposite_direction([2, 3, 4, 5, 8, 11, 18], 8)) # [1, 3]
