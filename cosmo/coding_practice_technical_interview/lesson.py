@@ -1,0 +1,1 @@
+#TODO: do the practice session either today or tomorrow
