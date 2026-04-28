@@ -36,9 +36,8 @@ def add_strings(string1, string2):
         j -= 1
     return string3
 
-# print(multiply_strings("99425", "9"))        
+print(multiply_strings("99425", "9"))        
 
-# print(add_strings("12345", "54321"))
+print(add_strings("12345", "54321"))
 
-# print(solution("123", "456"))
-print(solution("0", "500"))
+print(solution("123", "456"))
