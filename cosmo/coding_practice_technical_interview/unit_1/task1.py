@@ -1,7 +1,7 @@
 def solution(arrayA, arrayB):
     indexA, indexB = 0, None
     in_arrayA = True
-    visited_arrayA = set()
+    visited_arrayA = {0}
     arrayB_path = []
     # values inside arrays are 1-based, not 0 based like indices
     while True:
@@ -13,7 +13,7 @@ def solution(arrayA, arrayB):
             if indexA not in visited_arrayA:
                 visited_arrayA.add(indexA)
             else:
-                return arrayB_path[:-1]
+                return arrayB_path
                 
         in_arrayA = not in_arrayA
 
