@@ -39,7 +39,6 @@ def check_valid_path(index, length, visited):
 
 
 arrayA = [2, 1, 3, 0]
-arrayA = [2, 1, 3, 0]
 arrayB = [1, 3, 2, 4]
 arrayC = [4, 2, 5, 1]
 
