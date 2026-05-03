@@ -20,4 +20,5 @@ def solution(arrayA, arrayB):
 
 arrayA = [1, 3, 2, 5, 4]
 arrayB = [5, 4, 3, 2, 1]
+
 print(solution(arrayA, arrayB)) #  [1, 4, 3, 2, 5]
