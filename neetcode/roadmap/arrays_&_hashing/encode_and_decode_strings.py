@@ -55,17 +55,29 @@ strs[i] contains any possible characters out of 256 valid ASCII characters.
 class Solution:
 
     def encode(self, strs: list[str]) -> str:
-        return ",".join(strs)
+        if len(strs) == 1:
+            return strs[0]
+        else:
+            return ",".join(strs)
     
     def decode(self, s: str) -> list[str]:
-        return s.split(",")
+        if len(s) == 1:
+            return [s]
+        else:
+            return s.split(",")
     
 
 solution_test = Solution()
 
 encode = solution_test.encode(["Hello", "World"])
 encode2 = solution_test.encode([","])
+encode3 = solution_test.encode([""])
+encode4 = solution_test.encode(["0"])
+encode5 = solution_test.encode(["", ""])
 decode = solution_test.decode
 
 print(encode)
 print(decode(encode2))
+print(decode(encode3))
+print(decode(encode4))
+print(decode(encode5))
