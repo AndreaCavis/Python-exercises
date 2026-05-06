@@ -24,13 +24,13 @@ class Solution:
         n = len(nums)
         l, r = 0, n - 1
         prefix, suffix = [1] * n, [1] * n
-        product_left, product_right = 1, 1
+        prod_left, prod_right = 1, 1
 
         while l < n or r >= 0:
-            prefix[l] = product_left
-            suffix[r] = product_right
-            product_left *= nums[l]
-            product_right *= nums[r]
+            prefix[l] = prod_left
+            suffix[r] = prod_right
+            prod_left *= nums[l]
+            prod_right *= nums[r]
             l += 1
             r -= 1
 
