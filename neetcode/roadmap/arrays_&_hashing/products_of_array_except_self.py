@@ -18,31 +18,33 @@ Constraints:
 -20 <= nums[i] <= 20
 '''
 
-# ----------------------- Naive Solution (division) -----------------------
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         n = len(nums)
         l, r = 0, n - 1
+        # lists of len(nums) filled with 1 placeholders
         prefix, suffix = [1] * n, [1] * n
         prod_left, prod_right = 1, 1
 
         while l < n or r >= 0:
+            # assigning values to indices before multiplication excludes current i
             prefix[l] = prod_left
             suffix[r] = prod_right
+            # perform multiplication for next round of indices
             prod_left *= nums[l]
             prod_right *= nums[r]
             l += 1
             r -= 1
 
         res = []
+        # fill res with the multiplications using prefix and suffix
         for i in range(n):
-            res.append(prefix[i] * suffix[i])
+            res += [prefix[i] * suffix[i]]
 
         return res
 
 
 nums = [1,2,4,6]
 nums2 = [-1,0,1,2,3]
-
 print(Solution().productExceptSelf(nums))
 print(Solution().productExceptSelf(nums2))
