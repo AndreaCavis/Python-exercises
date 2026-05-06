@@ -51,7 +51,6 @@ strs[i] contains any possible characters out of 256 valid ASCII characters.
 '''
 
 
-# ------------- Naive Solution ------------------
 class Solution:
 
     def encode(self, strs: list[str]) -> str:
