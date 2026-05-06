@@ -23,8 +23,7 @@ class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         n = len(nums)
         l, r = 0, n - 1
-        prefix = [1] * n
-        suffix = [1] * n
+        prefix, suffix = [1] * n, [1] * n
         product_left, product_right = 1, 1
 
         while l < n or r >= 0:
