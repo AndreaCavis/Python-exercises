@@ -55,17 +55,36 @@ strs[i] contains any possible characters out of 256 valid ASCII characters.
 class Solution:
 
     def encode(self, strs: list[str]) -> str:
-        return ",".join(strs)
+        encoded_string = ""
+        for string in strs:
+            # create a custom delimiter "--" to handle all cases.
+            encoded_string += string + "-_-"
+        # encoded_string = "{whatever content}--" the trailing -- will be handled in decode()
+        return encoded_string
+
     
     def decode(self, s: str) -> list[str]:
-        return s.split(",")
+        # the trailing -- creates an empty array value. Return the list without it
+        decoded_list = s.split("-_-")
+        return decoded_list[:-1]
+
     
 
+
+# -------------------- Test Suite ---------------------------------
 solution_test = Solution()
 
 encode = solution_test.encode(["Hello", "World"])
 encode2 = solution_test.encode([","])
+encode3 = solution_test.encode([""])
+encode4 = solution_test.encode(["0"])
+encode5 = solution_test.encode(["", ""])
+encode6 = solution_test.encode(["Cristo", "Cane"])
 decode = solution_test.decode
 
 print(encode)
 print(decode(encode2))
+print(decode(encode3))
+print(decode(encode4))
+print(decode(encode5))
+print(decode(encode6))
