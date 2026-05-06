@@ -21,18 +21,29 @@ Constraints:
 # ----------------------- Naive Solution (division) -----------------------
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
-        products_list = []
-        total_prod = 1
-        # calculate total product from which we will deduct nums[i]
-        for num in nums:
-            total_prod *= num
+        n = len(nums)
+        l, r = 0, n - 1
+        prefix = [1] * n
+        suffix = [1] * n
+        product_left, product_right = 1, 1
 
-        for num in nums:
-            total_without_current_num = total_prod // num
-            products_list.append(total_without_current_num)
+        while l < n or r >= 0:
+            prefix[l] = product_left
+            suffix[r] = product_right
+            product_left *= nums[l]
+            product_right *= nums[r]
+            l += 1
+            r -= 1
 
-        return products_list
+        res = []
+        for i in range(n):
+            res.append(prefix[i] * suffix[i])
+
+        return res
 
 
-nums=[1,2,4,6]
+nums = [1,2,4,6]
+nums2 = [-1,0,1,2,3]
+
 print(Solution().productExceptSelf(nums))
+print(Solution().productExceptSelf(nums2))
