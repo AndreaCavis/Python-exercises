@@ -1,3 +1,21 @@
+class Solution:
+
+    def encode(self, strs: list[str]) -> str:
+        encoded_string = ""
+        for string in strs:
+            # create a custom delimiter "--" to handle all cases.
+            encoded_string += string + "-_-"
+        # encoded_string = "{whatever content}--" the trailing -- will be handled in decode()
+        return encoded_string
+
+    
+    def decode(self, s: str) -> list[str]:
+        # the trailing -- creates an empty array value. Return the list without it
+        decoded_list = s.split("-_-")
+        return decoded_list[:-1]
+    
+# for the test suite see related file in folder
+
 '''
 Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.
 
@@ -50,34 +68,3 @@ Constraints:
 strs[i] contains any possible characters out of 256 valid ASCII characters.
 '''
 
-
-# ------------- Naive Solution ------------------
-class Solution:
-
-    def encode(self, strs: list[str]) -> str:
-        if len(strs) == 1:
-            return strs[0]
-        else:
-            return ",".join(strs)
-    
-    def decode(self, s: str) -> list[str]:
-        if len(s) == 1:
-            return [s]
-        else:
-            return s.split(",")
-    
-
-solution_test = Solution()
-
-encode = solution_test.encode(["Hello", "World"])
-encode2 = solution_test.encode([","])
-encode3 = solution_test.encode([""])
-encode4 = solution_test.encode(["0"])
-encode5 = solution_test.encode(["", ""])
-decode = solution_test.decode
-
-print(encode)
-print(decode(encode2))
-print(decode(encode3))
-print(decode(encode4))
-print(decode(encode5))
