@@ -18,21 +18,28 @@ Constraints:
 -20 <= nums[i] <= 20
 '''
 
-# ----------------------- Naive Solution (division) -----------------------
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
-        products_list = []
-        total_prod = 1
-        # calculate total product from which we will deduct nums[i]
-        for num in nums:
-            total_prod *= num
+        n = len(nums)
+        l, r = 0, n - 1
+        # lists of len(nums) filled with 1 placeholders
+        prefix, suffix = [1] * n, [1] * n
+        prod_left, prod_right = 1, 1
 
-        for num in nums:
-            total_without_current_num = total_prod // num
-            products_list.append(total_without_current_num)
+        while l < n or r >= 0:
+            # assigning values to indices before multiplication excludes current i
+            prefix[l] = prod_left
+            suffix[r] = prod_right
+            # perform multiplication for next round of indices
+            prod_left *= nums[l]
+            prod_right *= nums[r]
+            l += 1
+            r -= 1
 
-        return products_list
+        res = []
+        # fill res with the multiplications using prefix and suffix
+        for i in range(n):
+            res += [prefix[i] * suffix[i]]
 
-
-nums=[1,2,4,6]
-print(Solution().productExceptSelf(nums))
+        return res
+        
