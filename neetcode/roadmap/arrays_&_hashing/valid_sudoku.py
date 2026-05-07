@@ -1,6 +1,25 @@
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         return True
+    
+
+
+string = "938475126"
+string2 = "123456789"
+
+array2D = [[""],[""]]
+j = 0
+for i in range(0, len(string2), 3):
+    array2D[j][j] += string2[i:i+3]
+    print(string2[i:i+3])
+
+print(array2D)
+# print(string2[0:3])
+# print(string2[3:6])
+# print(string2[6:13])
+
+
+
 
 
 '''
@@ -14,9 +33,6 @@ Return true if the Sudoku board is valid, otherwise return false
 Note: A board does not need to be full or be solvable to be valid.
 
 Example 1:
-
-
-
 Input: board =
 [["1","2",".",".","3",".",".",".","."],
  ["4",".",".","5",".",".",".",".","."],
@@ -27,10 +43,9 @@ Input: board =
  [".",".",".",".",".",".","2",".","."],
  [".",".",".","4","1","9",".",".","8"],
  [".",".",".",".","8",".",".","7","9"]]
-
 Output: true
-Example 2:
 
+Example 2:
 Input: board =
 [["1","2",".",".","3",".",".",".","."],
  ["4",".",".","5",".",".",".",".","."],
@@ -41,12 +56,10 @@ Input: board =
  [".",".",".",".",".",".","2",".","."],
  [".",".",".","4","1","9",".",".","8"],
  [".",".",".",".","8",".",".","7","9"]]
-
 Output: false
 Explanation: There are two 1's in the top-left 3x3 sub-box.
 
 Constraints:
-
 board.length == 9
 board[i].length == 9
 board[i][j] is a digit 1-9 or '.'.
