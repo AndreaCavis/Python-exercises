@@ -14,7 +14,7 @@ class Solution:
             if not isLineValid(column):
                 return False
             
-        return check_square(board)
+        return check_squares(board)
     
 
 def isLineValid(line: list[str]) -> bool:
@@ -26,7 +26,7 @@ def isLineValid(line: list[str]) -> bool:
     return True if len(nums) == len(set(nums)) else False
 
 
-def check_square(board: list[list[str]]) -> bool:
+def check_squares(board: list[list[str]]) -> bool:
     # create the 9 bucket squares for 3x3 squares numbers
     squares = [[] for _ in range(9)]
 
