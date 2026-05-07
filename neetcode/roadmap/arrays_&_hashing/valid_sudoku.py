@@ -1,23 +1,24 @@
+# ----------------------------- Naive Solution (check column, then row, then square) ----------------------------
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
+        for column in board:
+            if not check_line(column):
+                return False
+            for i in range(len(column)):
+                if not check_line(column[i]):
+                    return False
         return True
     
 
-
-string = "938475126"
-string2 = "123456789"
-
-array2D = [[""],[""]]
-j = 0
-for i in range(0, len(string2), 3):
-    array2D[j][j] += string2[i:i+3]
-    print(string2[i:i+3])
-
-print(array2D)
-# print(string2[0:3])
-# print(string2[3:6])
-# print(string2[6:13])
-
+def check_line(line):
+    value_set = set()
+    for value in line:
+        if value != ".":   
+            if value in value_set:
+                return False
+            else:
+                value_set.add(value)
+    return True
 
 
 
