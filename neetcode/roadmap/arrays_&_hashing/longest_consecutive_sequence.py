@@ -27,10 +27,11 @@ class Solution:
 
         for num in sorted(nums):
             if (num - 1) in num_sequences:
-                num_sequences[num - 1].append(num)
-                num_sequences[num] = num_sequences[num - 1]
+                num_sequences[num-1].append(num)
+                num_sequences[num] = num_sequences[num-1]
             else:
                 num_sequences[num] = [num]
+
         index, sequence_len = max(num_sequences.items(), key=lambda item: len(item[1]))
 
         return max(sequence_len)
