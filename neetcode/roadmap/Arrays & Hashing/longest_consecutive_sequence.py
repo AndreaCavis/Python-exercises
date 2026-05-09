@@ -6,19 +6,7 @@ The elements do not have to be consecutive in the original array.
 
 You must write an algorithm that runs in O(n) time.
 
-Example 1:
-Input: nums = [2,20,4,10,3,4,5]
-Output: 4
-
-Explanation: The longest consecutive sequence is [2, 3, 4, 5].
-
-Example 2:
-Input: nums = [0,3,2,5,4,6,1,1]
-Output: 7
-
-Constraints:
-0 <= nums.length <= 1000
--10^9 <= nums[i] <= 10^9
+https://neetcode.io/problems/longest-consecutive-sequence/history?list=neetcode150&submissionIndex=3
 '''
 
 class Solution:
@@ -38,6 +26,8 @@ class Solution:
             else:
                 num_sequences[num] = [num]
 
+        # the result of max() in this case is a tuple, e.g.: (1, [1,2,3]) 
+        # so 2 variables must be assigned to access max_sequence
         index, max_sequence = max(num_sequences.items(), key=lambda item: len(item[1]))
 
         return len(max_sequence)
