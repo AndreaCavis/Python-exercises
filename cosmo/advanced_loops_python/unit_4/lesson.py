@@ -1,3 +1,10 @@
+# I'M ON MAIN BRANCH
+
+# I don't see the updates here because they are part of another branch
+
+# I'll modify this file from a different branch (main in this case) to generate a conflict I'll have to solve
+# during merge.
+
 # position-value notation
 def solution(num1, num2):
     # two pointers initialised to the end of each string (len() - 1 due to 0 indexing)
