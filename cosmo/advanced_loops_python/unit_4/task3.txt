@@ -1,3 +1,4 @@
+'''
 You are tasked with writing a Python function to multiply two extremely large positive integers. 
 These are not your regular-sized large numbers; they are represented as strings potentially up to 500 digits long.
 
@@ -16,3 +17,4 @@ instead of merely converting strings into integers, multiplying them, and conver
 This approach is imperative as direct multiplication would not be feasible for very large numbers.
 
 Challenge yourself, and Happy Coding!
+'''
