@@ -1,3 +1,4 @@
+'''
 Your task is to design a 1-dimensional game where a player moves along a path determined by an array of integers.
 
 The path is an array of integers, each ranging from -100 to 100, inclusive.
@@ -37,6 +38,8 @@ At position 5, the value is 1, which would lead them out of the array's right bo
 
 After reversing direction at position 5, they move 1 step to the left and land on position 4. Total moves till now: 5.
 
-Now, with the reversed direction, the player is at position 4 where the value is -3. In the reversed direction, -3 indicates 3 steps to the right. But this would again lead to the right boundary of the array. Since they have already reversed direction once, they cannot move further in any direction and the game ends.
+Now, with the reversed direction, the player is at position 4 where the value is -3. In the reversed direction, -3 indicates 3 steps to the right. 
+But this would again lead to the right boundary of the array. Since they have already reversed direction once, they cannot move further in any direction and the game ends.
 
 At the end of the game, the player is at position 4 having made a total of 5 moves, thereby, the function returns (4, 5).
+'''
