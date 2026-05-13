@@ -1,3 +1,4 @@
+'''
 Here is a detailed look at our task: We will work with a string that represents a sentence in which words are separated by spaces. 
 Your task is to create a Python function that identifies the odd-indexed characters of words that have an even number of characters.
  Then, combine these characters into a single string, maintaining the order in which they appear in the sentence.
@@ -8,3 +9,4 @@ Similarly, we select 's' from 'is', and 'i', 'h', 'l', 'v', 'l' from 'high-level
 
 So, if our function is working correctly, it should return "yhnsihlvl".
 This task highlights the versatility of loops and conditionals in solving all kinds of string challenges!
+'''
