@@ -1,4 +1,9 @@
-#TODO: do the practice session either today or tomorrow
+# forgot to do the practice session in the end
+
+# MAIN BRANCH: generating fake merge conflict
+# by modifying this file from main I will generate
+# merge conflict with "chore/cosmo-remove-txt-files"
+
 
 def solution(arrayA, arrayB):
     indexA, indexB, max_value = 0, None, float("-inf")
