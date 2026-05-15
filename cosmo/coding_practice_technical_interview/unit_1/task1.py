@@ -1,22 +1,22 @@
 # Task description at the bottom
 
 def solution(arrayA, arrayB):
-    indexA, indexB = 0, None
+    idx_a, idx_b = 0, 0
     in_arrayA = True
-    visited_arrayA = {0}
-    arrayB_path = []
-    # values inside arrays are 1-based, not 0 based like indices
+    visited_arrayA = set()
+    visited_arrayB = []
+
     while True:
         if in_arrayA:
-            indexB = arrayA[indexA] - 1
-            arrayB_path.append(indexB + 1)
+            idx_b = arrayA[idx_a] - 1
         else:
-            indexA = arrayB[indexB] - 1
-            if indexA not in visited_arrayA:
-                visited_arrayA.add(indexA)
+            idx_a = arrayB[idx_b] - 1
+            if idx_a in visited_arrayA:
+                return visited_arrayB
             else:
-                return arrayB_path
-                
+                visited_arrayB.append(idx_b + 1)
+                visited_arrayA.add(idx_a)
+
         in_arrayA = not in_arrayA
 
 
