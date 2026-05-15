@@ -7,23 +7,26 @@ def solution(arrayA, arrayB, arrayC):
     max_val_B, max_val_C = float("-inf"), float("-inf")
     
     while True:
-        # step 1
+        # STEP 1
         indexB = arrayA[indexA]
         if check_valid_path(indexB, lengthB, visitedB):
             max_val_B = max(max_val_B, arrayB[indexB])
         else:
             return max_val_B + max_val_C
-        # step 2
+        
+        # STEP 2
         indexA = arrayB[indexB]
         if indexA >= lengthA:
             return max_val_B + max_val_C
-        # step 3
+        
+        # STEP 3
         indexC = arrayA[indexA]
         if check_valid_path(indexC, lengthC, visitedC):
             max_val_C = max(max_val_C, arrayC[indexC])
         else:
-            return max_val_B + max_val_C
-        # step 4
+            return max_val_B + max_val_C#
+        
+        # STEP 4
         indexA = arrayC[indexC]
         if indexA >= lengthA:
             return max_val_B + max_val_C
