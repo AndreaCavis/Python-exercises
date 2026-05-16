@@ -29,7 +29,7 @@ def character_frequency_encoding(word):
     next_string = ""
 
     for char in word:
-        # next_string += "a" if char == "z" else chr(ord(char) + 1) the lesson
+        # next_string += "a" if char == "z" else chr(ord(char) + 1) LESSON CODE
         next_string += chr((ord(char) - ord("a") + 1) % 26 + ord("a"))
 
     char_frequency = dict()
@@ -40,7 +40,8 @@ def character_frequency_encoding(word):
             char_frequency[char] = 1
     
     products = [ord(char) * freq for char, freq in char_frequency.items()]
-
+    # products.sort(reverse=True) LESSON CODE
+    # return products
     return sorted(products, reverse=True)
 
 print(character_frequency_encoding("banana")) # [294, 222, 99]
