@@ -1,8 +1,34 @@
 # Task description at the bottom
 
 def solution(roadA, roadB):
-    # TODO: implement the function according to the description above
-    pass
+    results = []
+    n = len(roadA)
+    visitedA, visitedB = set(), set()
+    # idx_a, idx_b = 0, None
+    in_roadA = True
+    
+    for i in range(n):
+        steps = 0
+        idx_a, idx_b = i, None
+        
+        while True:
+            if in_roadA:
+                idx_b = roadA[idx_a]
+                steps += 1
+                if idx_b in visitedB:
+                    break
+                else:
+                    visitedB.add(idx_b)
+            else:
+                idx_a = roadB[idx_b]
+                steps += 1
+                if idx_a in visitedA:
+                    break
+                else:
+                    visitedA.add(idx_a)
+        results.append(steps)
+        
+    return results
 
 
 roadA = [1, 0, 2]
