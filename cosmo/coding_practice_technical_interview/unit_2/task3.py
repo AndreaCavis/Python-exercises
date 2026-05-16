@@ -36,6 +36,9 @@ def solution(sentence):
     
     
 def shift_char(char):
+    if not char.isalnum():
+        return ""
+
     if char == "a":
         return "z"
     elif char == "A":
