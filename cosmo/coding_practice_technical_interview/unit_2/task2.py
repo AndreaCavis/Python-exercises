@@ -24,5 +24,19 @@ Then, we sort them based on the characters.
 '''
 
 def solution(s):
-    # TODO: Replace 'pass' with your implementation
-    pass
+    char_frequency = dict()
+    for char in s:
+        if char in char_frequency:
+            char_frequency[char] += 1
+        else:
+            char_frequency[char] = 1
+            
+    next_dict = {char: shift_char_value(char) * freq for char, freq in char_frequency.items()}
+    
+    return {char: value for char, value in sorted(next_dict.items())}
+
+
+def shift_char_value(char):
+    return (ord(char) - ord("a") - 3) % 26 + ord("a")
+        
+        
