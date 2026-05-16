@@ -36,6 +36,7 @@ def isLineValid(line: list[str]) -> bool:
         if value == ".":
             continue
         nums.append(value)
+    # if len(nums) is != from len(set(nums)) it means there are duplicates and the line is invalid
     return True if len(nums) == len(set(nums)) else False
 
 
