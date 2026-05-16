@@ -61,3 +61,4 @@ inputString = "books"
 array = [10, 20, 30, 50, 100]
 
 print(solution(inputString, array))  # Output: ('ppc', [50, 100])
+print(Mysolution(inputString, array))  # Output: ('ppc', [50, 100])
