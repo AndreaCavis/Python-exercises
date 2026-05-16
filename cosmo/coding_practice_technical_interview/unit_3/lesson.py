@@ -29,7 +29,35 @@ We start our process with an empty string and a sum of 0.
 
 So the output should be ('ppc', [50, 100]).
 '''
-
+# 2 versions of the solution, one is the original and one is mine, the difference is that I operate by removing numbers from the original array,
+# the original takes advantage of the index i to return the unprocessed list
 def solution(inputString, numbers):
+    result = ""
+    sum_so_far = 0
+    i = 0
+
+    while i < len(inputString) and sum_so_far <= 20:
+        result += chr((ord(inputString[i]) - ord("a") + 1) % 26 + ord("a"))
+        sum_so_far += round(numbers[i] / 2) # or numbers[i] // 2
+        i += 1
+    
+    return (result[::-1], numbers[i:])
+
+# ----------------------------------------------------------------------------
+def Mysolution(inputString, numbers):
     result = ''
     sum_so_far = 0
+    i = 0
+
+    while i < len(inputString) and sum_so_far <= 20:
+        result += chr((ord(inputString[i]) - ord("a") + 1) % 26 + ord("a"))
+        sum_so_far += numbers.pop(0) // 2
+        i += 1
+
+    return (result[::-1], numbers)
+
+
+inputString = "books"
+array = [10, 20, 30, 50, 100]
+
+print(solution(inputString, array))  # Output: ('ppc', [50, 100])
