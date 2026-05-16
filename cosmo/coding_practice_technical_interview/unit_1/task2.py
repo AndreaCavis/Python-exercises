@@ -24,7 +24,7 @@ def solution(arrayA, arrayB, arrayC):
         if check_valid_path(indexC, lengthC, visitedC):
             max_val_C = max(max_val_C, arrayC[indexC])
         else:
-            return max_val_B + max_val_C#
+            return max_val_B + max_val_C
         
         # STEP 4
         indexA = arrayC[indexC]
