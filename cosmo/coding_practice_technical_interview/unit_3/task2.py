@@ -3,8 +3,35 @@
 def solution(inputString, numbers):
     vowels = 'aeiou'
     consonants = 'bcdfghjklmnpqrstvwxyz'
-    # TODO: implement the solution based on the provided task description
-    pass
+    new_string = ""
+    sum_so_far, i = 0, 0
+    n = min(len(inputString), len(numbers))
+
+    while i < n and sum_so_far < 100:
+        char = inputString[i]
+        if char in vowels:
+            # string.index() returns the index of the first occurrence of the specified value in the string
+            new_string += vowels[(vowels.index(char) + 1) % len(vowels)]
+        else:
+            new_string += consonants[(consonants.index(char) + 1) % len(consonants)]
+            
+        sum_so_far += numbers[i] * 3
+        i += 1
+
+    return (new_string, numbers[i:])
+
+
+inputString = "examplestring"
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(solution(inputString, numbers))  # Output: ('iyenqmit', [9, 10])
+
+input_string = 'zero'
+array = [0, 0, 0]
+print(solution(input_string, array)) # Output: ('bis', [])
+
+
+
 
 '''
 You are given a string of length at most 100 and an array of at most 100 integers.
