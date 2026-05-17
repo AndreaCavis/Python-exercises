@@ -26,11 +26,10 @@ def solution(strings, numbers):
     n = min(len(strings), len(numbers))
     
     while i < n and sum_so_far <= 100:
-        sum_so_far += abs(numbers[i]) * 2
         if strings[i] in "aeiou":
             break
-        else:
-            new_string += chr(ord(strings[i]) - 1)
+        sum_so_far += abs(numbers[i]) * 2
+        new_string += chr((ord(strings[i]) - ord("a") - 1) % 26 + ord("a"))
         i += 1
         
     return (new_string, numbers[i:])
