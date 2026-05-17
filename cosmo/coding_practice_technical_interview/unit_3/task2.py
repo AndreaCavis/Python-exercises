@@ -1,19 +1,19 @@
 # Task description at the bottom 
 
 def solution(inputString, numbers):
-    vowels = 'aeiou'
-    consonants = 'bcdfghjklmnpqrstvwxyz'
+    VOWELS = 'aeiou'
+    CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
     new_string = ""
     sum_so_far, i = 0, 0
     n = min(len(inputString), len(numbers))
 
     while i < n and sum_so_far < 100:
         char = inputString[i]
-        if char in vowels:
+        if char in VOWELS:
             # string.index() returns the index of the first occurrence of the specified value in the string
-            new_string += vowels[(vowels.index(char) + 1) % len(vowels)]
+            new_string += VOWELS[(VOWELS.index(char) + 1) % len(VOWELS)]
         else:
-            new_string += consonants[(consonants.index(char) + 1) % len(consonants)]
+            new_string += CONSONANTS[(CONSONANTS.index(char) + 1) % len(CONSONANTS)]
             
         sum_so_far += numbers[i] * 3
         i += 1
