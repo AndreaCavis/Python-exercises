@@ -26,6 +26,7 @@ def solution(strings, numbers):
     n = min(len(strings), len(numbers))
     
     while i < n and sum_so_far <= 100:
+        # quick check for vowels, as opposed than 5 chained OR statements
         if strings[i] in "aeiou":
             break
         sum_so_far += abs(numbers[i]) * 2
