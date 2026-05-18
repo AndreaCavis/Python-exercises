@@ -11,7 +11,8 @@ https://neetcode.io/problems/is-palindrome/question?list=neetcode150
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         working_str = "".join(s.split())
-        clean_str = "".join([ch.lower() for ch in working_str if ch.isalpha() or ch.isdigit()])
+        # isalnum() = isalpha() or isdigit()
+        clean_str = "".join([ch.lower() for ch in working_str if ch.isalnum()]) 
         n = len(clean_str)
         l, r = 0, n - 1
 
