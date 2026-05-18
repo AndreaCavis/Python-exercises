@@ -36,6 +36,7 @@ def solution(sentence):
     
     
 def shift_char(char):
+    # isalnum() checks for alphanumeric characters. isalnum() = isalpha() or isdigit()
     if not char.isalnum():
         return ""
 
