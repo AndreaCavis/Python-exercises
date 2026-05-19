@@ -8,7 +8,8 @@ class Solution:
         
         sorted_nums = sorted(nums)
         n = len(sorted_nums)
-        i, k = 0, 1, n - 1
+        i, k = 0, n - 1
+        res = []
 
         for j in range(1, n - 2, 1):
             mid_num = nums[j]
