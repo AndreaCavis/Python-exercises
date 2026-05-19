@@ -3,10 +3,6 @@
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
-        # initial check to avoid wasting time
-        if sum(nums) < 0:
-            return []     
-        
         sorted_nums = sorted(nums)
         n = len(sorted_nums)
         i, k = 0, n - 1
@@ -28,6 +24,10 @@ class Solution:
             res.append([num for num in triplet])
 
         return res
+
+
+nums=[-1,0,1,2,-1,-4]
+print(Solution().threeSum(nums))
 
 
 '''
