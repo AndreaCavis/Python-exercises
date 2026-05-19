@@ -2,6 +2,18 @@
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
+        # initial check to avoid wasting time
+        if sum(nums) < 0:
+            return []
+        
+        sorted_nums = sorted(nums)
+        n = len(sorted_nums)
+        i, k = 0, 1, n - 1
+
+        for j in range(1, n - 2, 1):
+            mid_num = nums[j]
+
+            while i < j and j < k:
 
         return []
 
