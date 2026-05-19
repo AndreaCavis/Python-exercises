@@ -1,5 +1,4 @@
 # Description Below
-            # num_l, num_r, num_mid = nums[i], nums[k], nums[j]
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
@@ -8,7 +7,7 @@ class Solution:
         i, k = 0, len(sorted_nums) -1
         result_set = set()
 
-        for j in range(1, k, 1):
+        for j in range(1, n - 2, 1):
             while i < j and j < k:
                 temp_sum = sorted_nums[i] + sorted_nums[j] + sorted_nums[k]
                 if temp_sum < 0:
