@@ -1,22 +1,34 @@
 # Description Below
+            # num_l, num_r, num_mid = nums[i], nums[k], nums[j]
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         # initial check to avoid wasting time
         if sum(nums) < 0:
-            return []
+            return []     
         
         sorted_nums = sorted(nums)
         n = len(sorted_nums)
         i, k = 0, n - 1
-        res = []
+        result_set = set()
 
         for j in range(1, n - 2, 1):
-            mid_num = nums[j]
-
             while i < j and j < k:
+                temp_sum = nums[i] + nums[j] + nums[k]
+                if temp_sum < 0:
+                    i += 1
+                elif temp_sum > 0:
+                    k -= 1
+                else:
+                    result_set.add((nums[i], nums[j], nums[k]))
 
-        return []
+        temp_res = [x for x in result_set]
+        res = []
+        for triplet in temp_res:
+            res.append([num for num in triplet])
+
+        return res
+
 
 '''
 Given an integer array nums,
