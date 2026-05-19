@@ -6,11 +6,9 @@ class Solution:
         n = len(sorted_nums)
         result_set = set()
 
-        # NOTE: there seems to be an issue here with the for loop being skipped. 
-        # i=0, j=1, k=2 skips it but it shouldn't, it should do at least one run
         for j in range(1, n-1):
             i, k = 0, len(sorted_nums) -1
-            
+
             while i < j and j < k:
                 temp_sum = sorted_nums[i] + sorted_nums[j] + sorted_nums[k]
                 if temp_sum < 0:
@@ -19,7 +17,8 @@ class Solution:
                     k -= 1
                 elif temp_sum == 0:
                     result_set.add((sorted_nums[i], sorted_nums[j], sorted_nums[k]))
-                    # test: k-=1, i+=1 or k-=1, i+=1
+                    # test: k-=1, i+=1 or k-=1, i+=1 
+                    # PASSED: k-=1, i+=1, AND k-=1
                     k-=1
         
         # DATA FORMATTING (for exercise purpouse)
