@@ -5,19 +5,22 @@ class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         sorted_nums = sorted(nums)
         n = len(sorted_nums)
-        i, k = 0, n - 1
+        i, k = 0, len(sorted_nums) -1
         result_set = set()
 
-        for j in range(1, n - 2, 1):
+        for j in range(1, k, 1):
             while i < j and j < k:
-                temp_sum = nums[i] + nums[j] + nums[k]
+                temp_sum = sorted_nums[i] + sorted_nums[j] + sorted_nums[k]
                 if temp_sum < 0:
                     i += 1
                 elif temp_sum > 0:
                     k -= 1
-                else:
-                    result_set.add((nums[i], nums[j], nums[k]))
-
+                elif temp_sum == 0:
+                    result_set.add((sorted_nums[i], sorted_nums[j], sorted_nums[k]))
+                    # test: k-=1, i+=1 or k-=1, i+=1
+                    k-=1
+        
+        # DATA FORMATTING (for exercise purpouse)
         temp_res = [x for x in result_set]
         res = []
         for triplet in temp_res:
@@ -27,7 +30,9 @@ class Solution:
 
 
 nums=[-1,0,1,2,-1,-4]
-print(Solution().threeSum(nums))
+nums2=[0,0,0]
+print(Solution().threeSum(nums)) # output [[-1, 0, 1], [-1, -1, 2]]
+print(Solution().threeSum(nums2)) # output [[0, 0, 0]]
 
 
 '''
