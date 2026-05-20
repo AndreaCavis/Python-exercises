@@ -24,18 +24,25 @@ https://neetcode.io/problems/max-water-container/question?list=neetcode150
 # the distance between the indices 'l' and 'r' (2nd dimension) multiplied will produce curr_area.
 # I need to evaluate each area I can form and select the max(max_area, curr_area)
 
+# NOTE: Naive Solution, needs refactoring
 class Solution:
     def maxArea(self, heights: list[int]) -> int:
         n = len(heights) - 1
-        l, r = 0, n
-        max_area = float("-inf")
+        max_area = 0
 
-        while l < r:
-            height = min(height[l], height[r])
-            length = r - l
-            curr_area = height * length
-            max_area = max(curr_area, max_area)
+        for l in range(n):
+            r = n
+            while l < r:
+                height = min(heights[l], heights[r])
+                length = r - l
+                curr_area = height * length if length != 0 else 1
+                max_area = max(curr_area, max_area)
+                r -= 1
+
+        return max_area
 
 
-
-        return 0
+height=[1,7,2,5,4,7,3,6]
+height2 = [1,2]
+print(Solution().maxArea(height)) # 36
+print(Solution().maxArea(height2)) # 1
