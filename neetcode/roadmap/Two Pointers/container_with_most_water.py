@@ -31,6 +31,7 @@ class Solution:
             curr_area = height * length
             max_area = max(curr_area, max_area)
             # I KNEW THIS WAS THE APPROACH BUT I SECOND GUESSED MYSELF
+            # AND TALKED ME OUT OF IT. I NEED TO FIGURE THIS OUT
             if heights[l] < heights[r]:
                 l += 1
             else:
