@@ -24,16 +24,14 @@ class Solution:
     def maxArea(self, heights: list[int]) -> int:
         n = len(heights) - 1
         max_area = 0
-        l, r = 0, n
 
-        while l < r:
-            height = min(heights[l], heights[r])
-            length = r - l 
-            curr_area = height * length
-            if curr_area > max_area:
-                max_area = curr_area
-                l += 1
-            else:
+        for l in range(n):
+            r = n
+            while l < r:
+                height = min(heights[l], heights[r])
+                length = r - l
+                curr_area = height * length if length != 0 else 1
+                max_area = max(curr_area, max_area)
                 r -= 1
 
         return max_area
