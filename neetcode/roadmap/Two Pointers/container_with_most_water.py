@@ -24,7 +24,8 @@ class Solution:
     def maxArea(self, heights: list[int]) -> int:
         n = len(heights) - 1
         max_area = 0
-
+        
+        # Brute Force approach. O(n)2
         for l in range(n):
             r = n
             while l < r:
