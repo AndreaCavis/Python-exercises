@@ -14,10 +14,6 @@ Output: 4
 https://neetcode.io/problems/max-water-container/question?list=neetcode150
 '''
 
-# Ok, so the task asks me the max_area I can produce with n bars where n is the len(heights)
-# min(height[l], height[r]) is the height of the bar (1st dimension) and 
-# the distance between the indices 'l' and 'r' (2nd dimension) multiplied will produce curr_area.
-# I need to evaluate each area I can form and select the max(max_area, curr_area)
 
 class Solution:
     def maxArea(self, heights: list[int]) -> int:
@@ -40,11 +36,10 @@ class Solution:
 
 
 
-height=[1,7,2,5,4,7,3,6]
+height = [1,7,2,5,4,7,3,6]
 height2 = [1,2]
 height3 = [1,7,2,5,12,3,500,500,7,8,4,7,3,6]
 
 print(Solution().maxArea(height)) # 36
 print(Solution().maxArea(height2)) # 1
 print(Solution().maxArea(height3)) # 500
-print("Ciao")
