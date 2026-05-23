@@ -26,7 +26,7 @@ Can you create a function that accomplishes all this?
 def solution(arr, text):
     n = min(len(arr), len(text))
     sum_absolute, i = 0, 0
-    new_text = "DIOCANE"
+    new_text = ""
 
     while i < n:
         sum_absolute += abs(arr[i] - 3)
