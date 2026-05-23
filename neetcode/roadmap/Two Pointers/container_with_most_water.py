@@ -22,11 +22,13 @@ class Solution:
         l, r = 0, n
 
         while l < r:
+            # creating variables height and length makes the algorithm slightly slower
+            # so I will keep them here instead of doing everything in curr_area
             height = min(heights[l], heights[r])
             length = r - l
             curr_area = height * length
             max_area = max(curr_area, max_area)
-            # I KNEW THIS WAS THE APPROACH BUT I SECOND GUESSED MYSELF
+
             if heights[l] < heights[r]:
                 l += 1
             else:
