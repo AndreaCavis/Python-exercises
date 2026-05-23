@@ -27,6 +27,7 @@ class Solution:
             height = min(heights[l], heights[r])
             length = r - l
             curr_area = height * length
+            dsds
             max_area = max(curr_area, max_area)
 
             if heights[l] < heights[r]:
