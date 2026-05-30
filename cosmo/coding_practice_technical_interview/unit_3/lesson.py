@@ -62,6 +62,7 @@ def Mysolution(inputString, numbers):
 
     while i < len(inputString) and sum_so_far <= 20:
         result += chr((ord(inputString[i]) - ord("a") + 1) % 26 + ord("a"))
+        # the difference is here, I remove from the beginning of list as opposed to simply copying the value from the given position
         sum_so_far += round(numbers.pop(0) / 2)
         i += 1
 
