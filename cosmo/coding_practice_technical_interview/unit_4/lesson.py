@@ -41,10 +41,11 @@ def calculate_jump(forest, start, direction):
     
     return -1
 
+
 forest = [0, 1, 0, 0, 0, 0, 1, 1]
 start = 0
 direction = 1
-print("ciao")
+
 print(calculate_jump(forest, start, direction))
 
 
