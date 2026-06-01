@@ -27,24 +27,32 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
 
 def calculate_jump(forest, start, direction):
     n = len(forest) - 1
-    
-    for i in range(n):
-        jump = i + 1
-        next_step = forest[0]
-        
-        while next_step != 0:
-            current_step = next_step
-            if current_step == 0:
+
+    for jump in range(1, n, direction):
+        i = start
+        while i < n:
+            current_step = forest[i]
+            if current_step == 1:
                 break
-            else:
-                next_step = current_step + jump
 
-    # Other steps will be added here...
-
-
+            i += jump
+            if i > n:
+                return jump
+    
+    return -1
 
 forest = [0, 1, 0, 0, 0, 0, 1, 1]
 start = 0
 direction = 1
-
+print("ciao")
 print(calculate_jump(forest, start, direction))
+
+
+
+'''
+E questa roba non esiste, senza di me,
+dalle serate senza liste, senza prive,
+e sembra ancora che non passi, lo shock
+reppare finché la folla é esausta, non stop
+perché sta roba non esiste, senza di me
+'''
