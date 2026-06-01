@@ -27,33 +27,24 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
 
 def calculate_jump(forest, start, direction):
     n = len(forest) - 1
-    valid_solutions = []
-    # i = start
-    # current_step = forest[start]
 
-    for jump in range(start, n, direction):
+    for jump in range(1, n, direction):
         i = start
-
         while i < n:
             current_step = forest[i]
             if current_step == 1:
-                valid_solutions.append(-1)
-                continue
+                break
 
             i += jump
             if i > n:
-                valid_solutions.append(jump)
+                return jump
     
-    return min(valid_solutions)
-
-    # Other steps will be added here...
-
-
+    return -1
 
 forest = [0, 1, 0, 0, 0, 0, 1, 1]
 start = 0
 direction = 1
-
+print("ciao")
 print(calculate_jump(forest, start, direction))
 
 
