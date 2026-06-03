@@ -25,6 +25,7 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
   then jump outside of the array, thereby traversing the forest without hitting a tree.
 '''
 
+# Solution made autonomously
 def calculate_jump(forest, start, direction):
     n = len(forest) - 1
 
