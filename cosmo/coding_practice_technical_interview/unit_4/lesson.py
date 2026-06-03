@@ -28,6 +28,9 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
 def calculate_jump(forest, start, direction):
     n = len(forest) - 1
 
+    if forest[start] == 1:
+        return -1
+
     for jump in range(1, n, direction):
         i = start
         while i < n:
