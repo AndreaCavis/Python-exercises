@@ -29,7 +29,7 @@ Output:
 '''
 
 
-def solution(dungeon, health):
+def solution(dungeon: list, health: int) -> int:
     n = len(dungeon)
     path_dict = dict()
     step = 1

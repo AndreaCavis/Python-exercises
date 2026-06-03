@@ -27,7 +27,7 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
 
 
 # SOLUTION
-def calculate_jump(forest, start,direction):
+def calculate_jump(forest: list, start: int, direction: int) -> int:
     jump = 1
 
     # direction * jump to handle positive AND negative directions

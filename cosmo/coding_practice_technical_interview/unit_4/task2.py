@@ -9,7 +9,7 @@ You can take exactly k number of steps in the chosen direction, visiting a new l
 
 Write a Python function, largest_step(garden, start, direction), that accepts as input the garden as an array, 
 your starting position, and the direction in which you want to travel. 
-This function is expected to compute and return the largest-sized step step that you can take 
+This function is expected to compute and return the largest-sized step that you can take 
 so that you can visit each type of flower existing in the garden at least once.
 
 If no such value of step enables you to visit all types of flowers at least once, the function should return -1. 
@@ -18,6 +18,6 @@ while -1 suggests moving towards smaller ones (left).
 '''
 
 
-def largest_step(garden, start, direction):
-    # TODO: implement the function
-    pass
+def largest_step(garden: list, start: int, direction: int) -> int:
+    
+    return -1
