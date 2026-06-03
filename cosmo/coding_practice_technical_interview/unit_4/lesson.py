@@ -30,9 +30,11 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
 def calculate_jump(forest, start,direction):
     jump = 1
 
+    # direction * jump to handle positive AND negative directions
     while (direction * jump) + start >= 0 and (direction * jump) + start < len(forest):
         pos = start
-
+        # this is a WHILE/ELSE construct. Python "exclusive".
+        # the else condition begins when the loop ends without break 
         while 0 <= pos < len(forest):
             if forest[pos] == 1:
                 break
