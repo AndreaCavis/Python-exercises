@@ -29,7 +29,31 @@ Output:
 '''
 
 
-def solution(dungeon, health):
-    # TODO: Implement the solution
-    pass
+def solution(dungeon: list, health: int) -> int:
+    n = len(dungeon)
+    path_dict = dict()
+    step = 1
 
+    while step <= n:
+        pos, total_loss = 0, 0
+
+        while pos < n and total_loss <= health:
+            total_loss += dungeon[pos]
+            if health - total_loss <= 0:
+                break
+            pos += step
+        else:
+            path_dict[step] = health - total_loss
+
+        step += 1
+    
+    # this expression extracts value [0] form the tuple (key:value) returned from max(dict()) 
+    # return max(path_dict.items(), key=lambda item: item[1])[0]
+
+    # CORRECT APPROACH
+    return max(path_dict, key=lambda h: path_dict[h])
+
+
+dungeon = [0, 5, -2, 8, 3, 0, 10, 4, -1, 7]
+health = 20
+print(solution(dungeon, health))
