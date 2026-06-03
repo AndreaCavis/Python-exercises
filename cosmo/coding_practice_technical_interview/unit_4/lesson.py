@@ -25,8 +25,35 @@ For the input values forest = [0, 1, 0, 0, 0, 0, 1, 1], start = 0, and direction
   then jump outside of the array, thereby traversing the forest without hitting a tree.
 '''
 
-def calculate_jump(forest, start, direction):
+
+# SOLUTION
+def calculate_jump(forest, start,direction):
+    jump = 1
+
+    # direction * jump to handle positive AND negative directions
+    while (direction * jump) + start >= 0 and (direction * jump) + start < len(forest):
+        pos = start
+        # this is a WHILE/ELSE construct. Python "exclusive".
+        # the else condition begins when the loop ends without break 
+        while 0 <= pos < len(forest):
+            if forest[pos] == 1:
+                break
+            pos += direction * jump
+        else:
+            return jump
+    
+        jump += 1
+    return -1
+
+
+# ------------------------- NAIVE SOLUTION -----------------------------------------
+
+# This solution doesn't handle direction -1, therefore it is incomplete and wrong
+def calculate_jump_naive(forest, start, direction):
     n = len(forest) - 1
+
+    if forest[start] == 1:
+        return -1
 
     for jump in range(1, n, direction):
         i = start
@@ -46,14 +73,5 @@ forest = [0, 1, 0, 0, 0, 0, 1, 1]
 start = 0
 direction = 1
 
-print(calculate_jump(forest, start, direction))
-
-
-
-'''
-E questa roba non esiste, senza di me,
-dalle serate senza liste, senza prive,
-e sembra ancora che non passi, lo shock
-reppare finché la folla é esausta, non stop
-perché sta roba non esiste, senza di me
-'''
+print(calculate_jump_naive(forest, start, direction)) # output: 4
+print(calculate_jump(forest, start, direction)) # output: 4
