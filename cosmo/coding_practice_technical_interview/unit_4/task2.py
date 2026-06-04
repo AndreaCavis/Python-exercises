@@ -20,74 +20,38 @@ while -1 suggests moving towards smaller ones (left).
 
 # CURRENT best attempt
 def largest_step(garden: list, start: int, direction: int) -> int:
-    jump = 1
     n = len(garden)
-    res = []
+    step = 1
+    max_step = -1
 
-    FLOWERS = set()
+    FLOWERS = dict()
     for flower in garden:
-        FLOWERS.add(flower)
+        if flower not in FLOWERS:
+            FLOWERS[flower] = False
 
-    all_flowers = len(FLOWERS)
-    while (jump * direction) + start >= 0 and (jump * direction) + start <= n:
+    # direction -1, r to l (backwards), direction 1, l to r (normal)
+    while (step * direction) + start >= 0 and (step * direction) + start <= n:
         pos = start
-        flowers, steps = 0, 0
-        while pos >= 0 and pos < n:
+        visited_flowers = dict()
+        flower_count, all_flowers = 0, len(FLOWERS)
+        while 0 <= pos < n:
             flower = garden[pos]
-            if flower in FLOWERS:
-                flowers += 1
-                if flowers == all_flowers:
-                    return jump
-            pos += direction * jump
-            steps += 1
-        jump += 1
-    return -1
+            if flower not in visited_flowers:
+                visited_flowers[flower] = True
+                flower_count += 1
+                if flower_count == all_flowers:
+                    max_step = max(max_step, step)
+                    break
+            pos += (step * direction)
+
+        step += 1
+
+    return max_step
 
 
 # output: 2
 print(largest_step([3, 1, 2, 1, 3, 2, 1], 0, 1)) 
 # output: 1
 print(largest_step([1, 2, 3, 4, 5, 9, 2, 1, 3, 8, 2, 7, 1, 6], 13, -1))
-
-
-#             ------------------ WIP ----------------------                         
-def largest_step_WIP(garden: list, start: int, direction: int) -> int:
-    jump = 1
-    n = len(garden)
-    res = []
-
-    flowers = dict()
-    for flower in garden:
-        flowers[flower] = False
-    total_flowers = len(flowers)
-    
-    while (jump * direction) + start >= 0 and (jump * direction) + start <= n:
-        pos = start
-        flower_count = 0
-        flowers = reset_flowers(flowers)
-        while pos >= 0 and pos < n:
-            flower = garden[pos]
-            if flower in flowers:
-                if flowers[flower] == False:
-                    flowers[flower] = True
-                    flower_count += 1
-                    if flower_count == total_flowers:
-                        res.append(jump)
-            pos += jump * direction
-        else:
-            res.append(jump)
-
-        jump += 1
-
-    return max(res)
-
-
-def reset_flowers(flowers: dict) -> dict:
-    for flower in flowers:
-        flowers[flower] = False
-    return flowers
-
-# output: 2
-print(largest_step_WIP([3, 1, 2, 1, 3, 2, 1], 0, 1)) 
 # output: 1
-print(largest_step_WIP([1, 2, 3, 4, 5, 9, 2, 1, 3, 8, 2, 7, 1, 6], 13, -1))
+print(largest_step([1], 0, 1))
