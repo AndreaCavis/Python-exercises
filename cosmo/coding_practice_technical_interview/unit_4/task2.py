@@ -21,19 +21,17 @@ while -1 suggests moving towards smaller ones (left).
 # CURRENT best attempt
 def largest_step(garden: list, start: int, direction: int) -> int:
     n = len(garden)
-    step = 1
-    max_step = -1
+    step, max_step = 1, -1
+    # count the unique flowers in garden
+    all_flowers = len(set(garden))
 
-    FLOWERS = dict()
-    for flower in garden:
-        if flower not in FLOWERS:
-            FLOWERS[flower] = False
-
-    # direction -1, r to l (backwards), direction 1, l to r (normal)
+    # direction -1, r to l (backwards) AND direction 1, l to r (normal)
     while (step * direction) + start >= 0 and (step * direction) + start <= n:
+        # resetting variables for internal while loop
         pos = start
         visited_flowers = dict()
-        flower_count, all_flowers = 0, len(FLOWERS)
+        flower_count = 0
+
         while 0 <= pos < n:
             flower = garden[pos]
             if flower not in visited_flowers:
@@ -42,10 +40,11 @@ def largest_step(garden: list, start: int, direction: int) -> int:
                 if flower_count == all_flowers:
                     max_step = max(max_step, step)
                     break
+
             pos += (step * direction)
 
         step += 1
-
+        
     return max_step
 
 
