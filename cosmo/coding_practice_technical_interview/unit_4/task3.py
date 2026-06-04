@@ -30,6 +30,34 @@ Let's see how small you can get!
 '''
 
 
-def solution(array1, array2):
-    # TODO: Your implementation goes here
-    pass
+def solution(array1: list, array2: list):
+    # both arrays have the same len() as per exercise
+    n = len(array1)
+    res = dict()
+    shift, min_shift = 1, float("inf")
+
+    while shift < n:
+        new_arr = array1[shift:] + array1 [:shift]
+        curr_distance = calculate_manhattan_distance(new_arr, array2)
+
+        if curr_distance in res:
+            res[curr_distance] += [new_arr]
+        else:
+           res[curr_distance] = [new_arr]
+        
+        shift +=1
+
+    # calculate min manhattan distance
+    min_shift = min(res)
+    if len(res[min_shift]) > 1:
+        min_array = min(x for x in res[min_shift])
+        
+    return (min_array, min_shift)
+
+
+def calculate_manhattan_distance(arr1: list, arr2: list) -> int:
+    return sum([abs(a - b) for a, b in zip(arr1, arr2)])
+
+
+# output: ([3, 4, 5, 1, 2], 6)
+print(solution([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]))
