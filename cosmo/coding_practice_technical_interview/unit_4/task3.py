@@ -30,34 +30,54 @@ Let's see how small you can get!
 '''
 
 
-def solution(array1: list, array2: list):
+def solution(array1: list[int], array2: list[int]) -> tuple[list[int], int]:
     # both arrays have the same len() as per exercise
     n = len(array1)
-    res = dict()
-    shift, min_shift = 1, float("inf")
+    distances_dict = dict()
+    shift = 1
+
+    if calculate_manhattan_distance(array1, array2) == 0:
+        return (array1, 0)
 
     while shift < n:
-        new_arr = array1[shift:] + array1 [:shift]
-        curr_distance = calculate_manhattan_distance(new_arr, array2)
+        curr_array = array1[shift:] + array1[:shift]
+        curr_dist = calculate_manhattan_distance(curr_array, array2)
 
-        if curr_distance in res:
-            res[curr_distance] += [new_arr]
+        if curr_dist in distances_dict:
+            distances_dict[curr_dist] += [curr_array]
         else:
-           res[curr_distance] = [new_arr]
+           distances_dict[curr_dist] = [curr_array]
         
-        shift +=1
+        shift += 1
 
-    # calculate min manhattan distance
-    min_shift = min(res)
-    if len(res[min_shift]) > 1:
-        min_array = min(x for x in res[min_shift])
-        
+    # ---------- Data manipulation to calculate min manhattan distance ----------
+    min_shift = min(distances_dict)
+    # dict() to store stringified version of the array as a pointer for the original array
+    stringified_min_result = dict()
+
+    for x in distances_dict[min_shift]:
+        stringified_min_result[stringify_array(x)] = x
+
+    min_str_array = min(stringified_min_result)
+    min_array = stringified_min_result[min_str_array]
+
     return (min_array, min_shift)
 
 
-def calculate_manhattan_distance(arr1: list, arr2: list) -> int:
+def calculate_manhattan_distance(arr1: list[int], arr2: list[int]) -> int:
     return sum([abs(a - b) for a, b in zip(arr1, arr2)])
+
+
+def stringify_array(arr: list[int]) -> str:
+    return "".join(f"{x}" for x in arr)
 
 
 # output: ([3, 4, 5, 1, 2], 6)
 print(solution([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]))
+
+# output: ([2, 1], 0))
+print(solution([1, 2], [2, 1]))
+
+# output: ([10, 1, 2, 3, 4, 5, 6, 7, 8, 9], 45)
+print(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
+
