@@ -50,10 +50,11 @@ def solution(array1: list[int], array2: list[int]) -> tuple[list[int], int]:
         
         shift += 1
 
-    # calculate min manhattan distance
+    # ---------- Data manipulation to calculate min manhattan distance ----------
     min_shift = min(distances_dict)
-    # dict() to handle multiple array with same manhattan distance
+    # dict() to store stringified version of the array as a pointer for the original array
     stringified_min_result = dict()
+
     for x in distances_dict[min_shift]:
         stringified_min_result[stringify_array(x)] = x
 
