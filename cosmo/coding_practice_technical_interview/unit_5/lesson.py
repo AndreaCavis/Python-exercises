@@ -21,11 +21,29 @@ new_balloon += curr_balloons
 x % n new position
 '''
 
+'''
+NOTE: array.copy() creates a new SHALLOW COPY of array. shallow copy means a new list object with same elements,
+      whilst being different lists in memory. Shallow copy means that only the top-level is copied, so if the content
+      of the top level are other inner lists, those will be affected by the change when they are applied directly to the content,
+      e.g.: .append(), .extend(), .sort()
+
+      A completely indipendent copy can be obtained through new_arr = copy.deepcopy(arr), however you must import copy   
+'''
+
 
 # NAIVE SOLUTION.
 def solution(balloons: list) -> int:
-    n = len(balloons)
-    return 0
+    steps = 0
+    while True:
+        steps += 1
+        # copy() is what I was trying to organise in my naive attempt without knowing about this built in function
+        new_balloons = balloons.copy() # store updated balloon counts
+        # TODO: share the balloons
+        if new_balloons == balloons:
+            break
+        balloons = new_balloons
+
+    return steps
 
 
 balloons = [4, 1, 2]
