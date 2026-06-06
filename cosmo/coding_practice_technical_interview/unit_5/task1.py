@@ -29,6 +29,6 @@ The rounds would occur as follows:
 '''
 
 
-def solution(s):
+def solution(s: str) -> list[str]:
     # TODO: implement the solution here
-    pass
+    return [""]
