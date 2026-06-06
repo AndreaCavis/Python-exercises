@@ -33,14 +33,27 @@ NOTE: array.copy() creates a new SHALLOW COPY of array. shallow copy means a new
 
 # NAIVE SOLUTION.
 def solution(balloons: list) -> int:
+    n = len(balloons)
     steps = 0
+
     while True:
         steps += 1
         # copy() is what I was trying to organise in my naive attempt without knowing about this built in function
-        new_balloons = balloons.copy() # store updated balloon counts
-        # TODO: share the balloons
+        # store updated balloon counts 
+        new_balloons = balloons.copy() # (the list update happens at end of the while iteration, aka NOTE)
+
+        for i in range(n):
+            # share is extracted from balloons so the new_ballooons value upates
+            # don't affect the correct starting value for the following iteration
+            share = balloons[i] // 2
+            new_balloons[i] -= share
+            new_balloons[(i + 1) % n] += share
+
+        # condition check to solve the exercise
         if new_balloons == balloons:
             break
+        # NOTE: IMPORTANT here, balloons must be updated to new balloons
+        # to secure the correct progression of the sharing algorithm
         balloons = new_balloons
 
     return steps
