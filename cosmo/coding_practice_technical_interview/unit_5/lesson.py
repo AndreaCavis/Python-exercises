@@ -25,38 +25,8 @@ x % n new position
 # NAIVE SOLUTION.
 def solution(balloons: list) -> int:
     n = len(balloons)
-    steps = 0
-    i, j = 0, n - 1
-    
-    balloons_record = dict()
-    for i in range(n):
-        balloons_record[i] = balloons[i]
+    return 0
 
-    # curr_balloons = dict()
-    while True:
-        balloons_record = {x for x in curr_balloons} if steps > 0 else balloons_record
-        curr_balloons = dict() if steps < 1 else curr_balloons
-        for i in range(n):
-            # original balloons
-            # balloons_record[i] = balloons[i]
-            
-            balloon_received = balloons_record[i] // 2
-            balloon_sent = balloons_record[(i+1)%n] // 2
-            # current ballons step
-            curr_balloons[(i+1)%n] = balloons_record[(i+1)%n] + balloon_received - balloon_sent
-        
-        steps += 1
-
-        curr_balloons = sorted(curr_balloons.items(), key=lambda item: item[0])
-        for i, j in zip(balloons_record, curr_balloons):
-            old_step = balloons_record[i]
-            new_step = curr_balloons[j]
-            if old_step != new_step:
-                break
-            else:
-                continue
-        else:
-            return steps
 
 balloons = [4, 1, 2]
 print(solution(balloons)) # 3
