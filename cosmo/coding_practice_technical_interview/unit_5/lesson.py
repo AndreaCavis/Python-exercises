@@ -16,10 +16,16 @@ Note that when the number of balloons x is odd, than the house sends (x - 1) / 2
 - So after the third step, the process finishes.
 '''
 
+'''
+new_balloon += curr_balloons
+x % n new position
+'''
 
-def solution(balloons):
+
+# NAIVE SOLUTION.
+def solution(balloons: list) -> int:
     n = len(balloons)
-    pass
+    return 0
 
 
 balloons = [4, 1, 2]
