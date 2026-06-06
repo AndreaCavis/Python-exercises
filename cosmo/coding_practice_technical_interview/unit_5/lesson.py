@@ -21,6 +21,8 @@ new_balloon += curr_balloons
 x % n new position
 '''
 
+
+# NAIVE SOLUTION.
 def solution(balloons: list) -> int:
     n = len(balloons)
     steps = 0
@@ -55,21 +57,6 @@ def solution(balloons: list) -> int:
                 continue
         else:
             return steps
-
-        
-
-        
-
-
-    # while True:
-    #     temp_balloon = [x for x in balloons]
-    #     curr_balloons = []
-    #     for i in range(n):
-    #         if curr_balloons
-
-
-    return steps
-
 
 balloons = [4, 1, 2]
 print(solution(balloons)) # 3
