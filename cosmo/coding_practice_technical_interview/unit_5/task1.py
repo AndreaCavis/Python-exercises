@@ -35,18 +35,19 @@ def Mysolution(s: str) -> list[str]:
 
 
 def solution(s):
-  n = len(s)
-  neighbour_pairs = []
-  i = 0
-  while i < n:
-  for i in range(n):
-      if n % 2 == 0:
-          neighbour_pairs += (s[i], s[i+1])
-      else:
-          neighbour_pairs += (s[i])
-  
-  print(neighbour_pairs)
-  pass
+    n = len(s)
+    neighbour_pairs = []
+    i = 0
+
+    while i < n:
+        if n % 2 == 0:
+            neighbour_pairs.append([s[i:i+2]])
+        else:
+            neighbour_pairs.append([s[i:i+2]])
+        i += 2
+
+    print(neighbour_pairs)
+    pass
 
 s = "BCAAB"
 print(solution(s))
