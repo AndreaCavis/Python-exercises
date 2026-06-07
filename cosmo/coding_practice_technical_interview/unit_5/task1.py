@@ -29,6 +29,25 @@ The rounds would occur as follows:
 '''
 
 
-def solution(s: str) -> list[str]:
+def Mysolution(s: str) -> list[str]:
     # TODO: implement the solution here
     return [""]
+
+
+def solution(s):
+    n = len(s)
+    neighbour_pairs = []
+    i = 0
+
+    while i < n:
+        if n % 2 == 0:
+            neighbour_pairs.append([s[i:i+2]])
+        else:
+            neighbour_pairs.append([s[i:i+2]])
+        i += 2
+
+    print(neighbour_pairs)
+    pass
+
+s = "BCAAB"
+print(solution(s))
