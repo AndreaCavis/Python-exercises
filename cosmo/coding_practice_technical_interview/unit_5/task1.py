@@ -30,7 +30,16 @@ The rounds would occur as follows:
 
 
 def Mysolution(s: str) -> list[str]:
-    # TODO: implement the solution here
+    n = len(s)
+    neighbour_pairs = []
+    
+    i = 0
+    # creating pairs
+    while i < n:
+        neighbour_pairs.append([s[i:i+2]])
+        i += 2
+    
+    
     return [""]
 
 
