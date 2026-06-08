@@ -31,17 +31,33 @@ The rounds would occur as follows:
 
 def solution(s: str) -> list[str]:
     n = len(s)
-    neighbour_pairs = []
-    
-    i = 0
-    # creating pairs
-    while i < n:
-        neighbour_pairs.append([s[i:i+2]])
-        i += 2
-    
-    
-    return [""]
+    res = []
 
+    while s:
+        new_s = ""
+        for i in range(0, len(s), 2):
+            pair = [char for char in s[i:i + 2]]
+            
+            if len(pair) == 1 and len(s) == 1:
+                res += s
+                break
+            elif len(pair) == 1:
+                new_s += "".join(pair)
+                break
+            else:
+                if ord(pair[0]) <= ord(pair[-1]):
+                    res += pair.pop(0)
+                else:
+                    res += pair.pop(1)
+            new_s += "".join(pair)
 
-s = "BCAAB"
-print(solution(s))
+        s = new_s
+
+    return res
+
+# ['B', 'A', 'A', 'B', 'C']
+print(solution("BCAAB"))
+# ['A', 'A', 'A']
+print(solution("AAA"))
+# ['A', 'C', 'B', 'D', 'E']
+print(solution("ABCDE"))
