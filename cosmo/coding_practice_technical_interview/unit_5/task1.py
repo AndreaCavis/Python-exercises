@@ -28,19 +28,33 @@ The rounds would occur as follows:
   The removed characters list becomes ['B', 'A', 'A', 'B', 'C'].
 '''
 
-
+#  initial working solution
 def solution(s: str) -> list[str]:
     n = len(s)
-    neighbour_pairs = []
-    
-    i = 0
-    # creating pairs
-    while i < n:
-        neighbour_pairs.append([s[i:i+2]])
-        i += 2
-    
-    
-    return [""]
+    res = []
+
+    while len(s) > 0:
+      new_s = ""
+      for i in range(0, n, 2):
+          pair = [char for char in s[i:i+2]]
+
+          if len(pair) == 1:
+              new_s += "".join(pair)
+              break
+          elif len(pair) == 0:
+              res += new_s
+              new_s = ""
+              break
+          else:
+              if ord(pair[0]) <= ord(pair[-1]):
+                  res += pair.pop(0)
+              else:
+                  res += pair.pop(1)
+          new_s += "".join(pair)
+          
+      s = new_s
+
+    return res
 
 
 s = "BCAAB"
