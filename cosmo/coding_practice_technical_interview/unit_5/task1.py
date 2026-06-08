@@ -34,25 +34,25 @@ def solution(s: str) -> list[str]:
     res = []
 
     while len(s) > 0:
-      new_s = ""
-      for i in range(0, n, 2):
-          pair = [char for char in s[i:i+2]]
-
-          if len(pair) == 1:
-              new_s += "".join(pair)
-              break
-          elif len(pair) == 0:
-              res += new_s
-              new_s = ""
-              break
-          else:
-              if ord(pair[0]) <= ord(pair[-1]):
-                  res += pair.pop(0)
-              else:
-                  res += pair.pop(1)
-          new_s += "".join(pair)
-          
-      s = new_s
+        new_s = ""
+        for i in range(0, n, 2):
+            pair = [char for char in s[i:i + 2]]
+            
+            if len(pair) == 1:
+                new_s += "".join(pair)
+                break
+            elif len(pair) == 0:
+                res += new_s
+                new_s = ""
+                break
+            else:
+                if ord(pair[0]) <= ord(pair[-1]):
+                    res += pair.pop(0)
+                else:
+                    res += pair.pop(1)
+            new_s += "".join(pair)
+            
+    s = new_s
 
     return res
 
