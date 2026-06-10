@@ -60,15 +60,12 @@ This sequence of transformations leads to the final set of house numbers, [362, 
 
 
 def house_game(houses: list[int]) -> list[int]:
-    n = len(houses)
-
-    new_houses = []
-
-    while True:
-        if new_houses == houses:
-            break
-
-    return new_houses
+    # DATA FORMATTING: Convert int to str
+    str_houses = [str(x) for x in houses]
+    # reverse string numbers to manipulate data more efficiently
+    rev_str_houses = [x[::-1] for x in str_houses]
+    
+    return [1]
 
 
 houses = [123, 234, 345, 456]
