@@ -64,7 +64,8 @@ def house_game(houses: list[int]) -> list[int]:
     str_houses = [str(x) for x in houses]
     # reverse string numbers to manipulate data more efficiently
     rev_houses = [x[::-1] for x in str_houses]
-    new_rev_houses = rev_houses.copy()
+    working_list = [[char for char in x] for x in rev_houses]
+    new_rev_houses = working_list.copy()
     n = len(str_houses)
     num_max_len = len(max(str_houses)) 
 
@@ -75,10 +76,7 @@ def house_game(houses: list[int]) -> list[int]:
         # i will be the position needed to change the value from, 
         # j will be the number in the list to update
         for j in range(n):
-            digit = rev_houses[j][i] if rev_houses[j][i] else ""
-            new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i:]
-            # NOTE: THIS IS A FUCKIN MESS, IT DOESN'T MAKE SENSE. SURELY IT WORKS DIFFERENTLY.
-            new_rev_houses[(j + 1) % n] = new_rev_houses[(j + 1) % n][:i] + digit + new_rev_houses[(j + 1) % n][i + 1:]
+            # NOTE: I isolated all digits into 2d arrays to access their position index more easily
 
         if new_rev_houses == rev_houses:
             break
