@@ -19,6 +19,9 @@ Given the list of knights' strengths in the initial order, your program should c
 
 def tournament(knights: list[int]) -> int:
     rounds = 0
+    
+    if len(knights) <= 1:
+        return rounds
 
     while True:
         n = len(knights)
@@ -26,9 +29,9 @@ def tournament(knights: list[int]) -> int:
         new_knights = []
 
         for i in range(n):
-            damage = knights[(i+1)%n] - knights[i]
-            if knights[i] - damage > 0:
-                new_knights.append(knights[i])
+            fight = knights[i] - knights[(i + 1) % n]
+            if fight > 0:
+                new_knights.append(fight)
             
         if len(new_knights) <= 1:
             break
@@ -39,5 +42,11 @@ def tournament(knights: list[int]) -> int:
 
 # output: 3
 print(tournament([100, 50, 30, 20]))
+# output: 1
+print(tournament([70, 80, 60]))
+# output: 1
+print(tournament([50, 20, 30, 40]))
+
+print(tournament([100]))
 
 
