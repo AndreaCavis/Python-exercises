@@ -26,7 +26,7 @@ def tournament(knights: list[int]) -> int:
         new_knights = []
 
         for i in range(n):
-            damage = knights[(i+1)%n] - knights[i]
+            damage = knights[(i + 1) % n] - knights[i]
             if knights[i] - damage > 0:
                 new_knights.append(knights[i])
             
