@@ -64,9 +64,7 @@ def house_game(houses: list[int]) -> list[int]:
     str_houses = [str(x) for x in houses]
     # reverse string numbers to manipulate data more efficiently
     rev_houses = [x[::-1] for x in str_houses]
-    # NOTE: USE WORKING LIST
-    # working_list = [[char for char in x] for x in rev_houses]
-    # new_working_list = working_list.copy()
+
     n = len(str_houses)
     num_max_len = len(max(str_houses)) 
 
@@ -75,18 +73,8 @@ def house_game(houses: list[int]) -> list[int]:
         new_rev_houses = rev_houses.copy()
         i = i % (num_max_len - 1)
 
-        # i will be the position needed to change the value from, 
-        # j will be the number in the list to update
         for j in range(n):
-            # curr_num = new_working_list[j]
-            # next_num = new_working_list[(j + 1) % n]
-            # digit = curr_num.pop(i)
-            # next_num = next_num.insert(i, digit)
-
             # # NOTE: I isolated all digits into 2d arrays to access their position index more easily
-            # digit = rev_houses[j][i] if rev_houses[j][i] else ""
-            # new_working_list[j] = new_working_list[j][:i] + new_working_list[j][i:]
-            # new_working_list[(j + 1) % n] = new_working_list[(j + 1) % n][:i] + [digit] + new_working_list[(j + 1) % n][i + 1:]
             digit = rev_houses[j][i]
             if i == 0:
                 new_rev_houses[j] = new_rev_houses[j][1:]
@@ -94,10 +82,7 @@ def house_game(houses: list[int]) -> list[int]:
                 new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i+1:]
 
             new_rev_houses[(j+1)%n] += digit
-        # if new_working_list == working_list:
-        #     break
-        # else:
-        #     working_list = new_working_list
+
         if new_rev_houses == rev_houses:
             break
         else:
@@ -106,12 +91,9 @@ def house_game(houses: list[int]) -> list[int]:
         i += 1
 
     # DATA FORMATTING NOTE: to be corrected
-    # str_res = [x[::-1] for x in new_working_list]
     str_res = [x[::-1] for x in new_rev_houses]
-
     res = [int(x) for x in str_res]
     
-    # return [1]
     return res
 
 
