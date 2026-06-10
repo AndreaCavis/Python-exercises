@@ -27,7 +27,7 @@ def organiseArray(nums):
         right = mid
         result = []
 
-    while left >= 0 and right < len(nums):r
+    while left >= 0 and right < len(nums):
         result.append(nums[left])
         result.append(nums[right])
         left -= 1
@@ -552,7 +552,3 @@ def solution(sentence):
 print(solution("Python is a high-level programming language")) # output ar
 
 # ----------------------------------------------------------------------------------
-
-
-# ----------------------------------------------------------------------------------
-
