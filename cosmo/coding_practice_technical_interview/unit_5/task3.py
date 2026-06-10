@@ -62,9 +62,22 @@ This sequence of transformations leads to the final set of house numbers, [362, 
 def house_game(houses: list[int]) -> list[int]:
     n = len(houses)
 
-    new_houses = []
+    max_num = max(houses)
+
+    # m = len([x for x in max_num])
+
 
     while True:
+        new_houses = []
+
+        # Addendum: n * 10^2 puts n in the hundrends, 10^3 in the thousands, etc. Dunno if it's needed here
+        # for i in range()
+        for i in range(n):
+            digit = houses[i] // abs(0 - 1 - i)
+            new_houses
+            # implement logic
+            print(i)
+        
         if new_houses == houses:
             break
 
