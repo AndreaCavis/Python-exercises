@@ -43,7 +43,7 @@ def tournament(knights: list[int]) -> int:
 # output: 3
 print(tournament([100, 50, 30, 20]))
 # output: 1
-print(tournament([70, 60, 80]))
+print(tournament([70, 80, 60]))
 # output: 1
 print(tournament([50, 20, 30, 40]))
 
