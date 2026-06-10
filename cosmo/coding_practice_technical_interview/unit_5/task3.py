@@ -64,6 +64,7 @@ def house_game(houses: list[int]) -> list[int]:
     str_houses = [str(x) for x in houses]
     # reverse string numbers to manipulate data more efficiently
     rev_houses = [x[::-1] for x in str_houses]
+    # NOTE: USE WORKING LIST
     working_list = [[char for char in x] for x in rev_houses]
     new_rev_houses = working_list.copy()
     n = len(str_houses)
