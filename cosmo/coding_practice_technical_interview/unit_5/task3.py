@@ -78,6 +78,9 @@ def house_game(houses: list[int]) -> list[int]:
         # j will be the number in the list to update
         for j in range(n):
             # NOTE: I isolated all digits into 2d arrays to access their position index more easily
+            digit = rev_houses[j][i] if rev_houses[j][i] else ""
+            new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i:]
+            new_rev_houses[(j + 1) % n] = new_rev_houses[(j + 1) % n][:i] + [digit] + new_rev_houses[(j + 1) % n][i + 1:]
 
         if new_rev_houses == rev_houses:
             break
@@ -86,11 +89,12 @@ def house_game(houses: list[int]) -> list[int]:
             
         i += 1
 
+    # DATA FORMATTING NOTE: to be corrected
     str_res = [x[::-1] for x in new_rev_houses]
 
-    res = [int(x) for x in str_res]
+    # res = [int(x) for x in str_res]
     
-    return res
+    return [1]
 
 
 houses = [123, 234, 345, 456]
