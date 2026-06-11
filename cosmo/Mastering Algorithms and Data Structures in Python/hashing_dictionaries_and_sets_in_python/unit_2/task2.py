@@ -24,7 +24,8 @@ def hash_set_operations():
 
     # Adding elements to the set
     for i in range(data_range):
-        names_set.add(unique_names[0])
+        names_set.add(unique_names[0]) # this was the original line
+        names_set.add(unique_names[i])
 
     # Define a test element (which is out of the data range and thus is not present in the set)
     test_name = 'Name' + str(data_range + 1)
