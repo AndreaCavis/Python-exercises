@@ -60,9 +60,8 @@ This sequence of transformations leads to the final set of house numbers, [362, 
 
 
 def house_game(houses: list[int]) -> list[int]:
-    # DATA FORMATTING: Convert int to str
+    # DATA FORMATTING: Convert int to str and reverse numbers
     str_houses = [str(x) for x in houses]
-    # reverse string numbers to manipulate data more efficiently
     rev_houses = [x[::-1] for x in str_houses]
 
     n = len(rev_houses)
@@ -74,13 +73,8 @@ def house_game(houses: list[int]) -> list[int]:
         for j in range(n):
             if i >= len(rev_houses[j]):
                 continue
-            
             digit = rev_houses[j][i] 
-            if i == 0:
-                new_rev_houses[j] = new_rev_houses[j][1:]
-            else:
-                new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i+1:]
-
+            new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i+1:]
             new_rev_houses[(j+1)%n] += digit
 
         if new_rev_houses == rev_houses:
@@ -88,20 +82,15 @@ def house_game(houses: list[int]) -> list[int]:
         else:
             rev_houses = new_rev_houses
 
-        max_num_len = len(max(rev_houses))
-            
         i += 1
 
-    # DATA FORMATTING NOTE: to be corrected
+    # DATA FORMATTING: reverse in original order and back to int
     str_res = [x[::-1] for x in new_rev_houses]
     res = [int(x) for x in str_res]
     
     return res
 
 
-houses = [123, 234, 345, 456]
-# print(house_game(houses))
-houses2 = [141, 4]
-print(house_game(houses2)) # [44, 11]
-houses3 = [155, 261, 31]
-# print(house_game(houses3))
+print(house_game([123, 234, 345, 456])) # [362, 433, 144, 255]
+print(house_game([141, 4])) # [44, 11]
+print(house_game([155, 261, 31])) # [15, 156, 123]
