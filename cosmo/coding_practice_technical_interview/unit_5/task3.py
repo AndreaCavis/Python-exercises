@@ -1,3 +1,44 @@
+# Task description at the bottom
+
+def house_game(houses: list[int]) -> list[int]:
+    # DATA FORMATTING: Convert int to str and reverse numbers
+    str_houses = [str(x) for x in houses]
+    rev_houses = [x[::-1] for x in str_houses]
+
+    n = len(rev_houses)
+    i = 0
+    while i < len(max(rev_houses)):
+        new_rev_houses = rev_houses.copy()
+        
+        for j in range(n):
+            if i >= len(rev_houses[j]):
+                continue
+            # extract i-th value
+            digit = rev_houses[j][i]
+            # remove the i-th value
+            new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i + 1:]
+            # add i-th value to END of next_num (since we're working on reversed list)
+            new_rev_houses[(j + 1) % n] += digit
+
+        if new_rev_houses == rev_houses:
+            break
+        else:
+            rev_houses = new_rev_houses
+
+        i += 1
+
+    # DATA FORMATTING: reverse in original order and back to int
+    str_res = [x[::-1] for x in new_rev_houses]
+    res = [int(x) for x in str_res]
+    
+    return res
+
+
+print(house_game([123, 234, 345, 456])) # [362, 433, 144, 255]
+print(house_game([141, 4])) # [44, 11]
+print(house_game([155, 261, 31])) # [15, 156, 123]
+
+
 '''
 In a unique town, there's a popular game that involves the town's houses and their numbers. 
 What's special about this town is that each house is sequentially numbered from 1 to n. 
@@ -58,41 +99,3 @@ In Step 4, no further changes occur, so the final output is [362, 433, 144, 255]
 This sequence of transformations leads to the final set of house numbers, [362, 433, 144, 255].
 '''
 
-
-def house_game(houses: list[int]) -> list[int]:
-    # DATA FORMATTING: Convert int to str
-    str_houses = [str(x) for x in houses]
-    # reverse string numbers to manipulate data more efficiently
-    rev_houses = [x[::-1] for x in str_houses]
-    new_rev_houses = rev_houses.copy()
-    n = len(str_houses)
-    num_max_len = len(max(str_houses)) 
-
-    i = 0
-    while True:
-        i = i % (num_max_len - 1)
-
-        # i will be the position needed to change the value from, 
-        # j will be the number in the list to update
-        for j in range(n):
-            digit = rev_houses[j][i] if rev_houses[j][i] else ""
-            new_rev_houses[j] = new_rev_houses[j][:i] + new_rev_houses[j][i:]
-            # NOTE: THIS IS A FUCKIN MESS, IT DOESN'T MAKE SENSE. SURELY IT WORKS DIFFERENTLY.
-            new_rev_houses[(j + 1) % n] = new_rev_houses[(j + 1) % n][:i] + digit + new_rev_houses[(j + 1) % n][i + 1:]
-
-        if new_rev_houses == rev_houses:
-            break
-        else:
-            rev_houses = new_rev_houses
-            
-        i += 1
-
-    str_res = [x[::-1] for x in new_rev_houses]
-
-    res = [int(x) for x in str_res]
-    
-    return res
-
-
-houses = [123, 234, 345, 456]
-print(house_game(houses))
