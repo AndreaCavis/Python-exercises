@@ -33,13 +33,13 @@ def compare_operations():
     # TODO: Time the 100 consecutive operations of checking whether `test_item` is in `data_set` and print the result and time taken
     start_time = time.time()
     for i in range(100):
-        test_item in data_set
+        test_item in data_set # type: ignore (used for time testing)
     print(f"Searching in the Hash Set Took: {time.time() - start_time}")
 
     # TODO: Time the 100 consecutive operations of checking whether `test_item` is in `data_list` and print the result and time taken
     start_time = time.time()
     for i in range(100):
-        test_item in data_list
+        test_item in data_list # type: ignore (used for time testing)
     print(f"Searching in the List Took: {time.time() - start_time}")
 
 # Execute the function
