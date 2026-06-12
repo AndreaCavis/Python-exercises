@@ -31,8 +31,16 @@ def compare_operations():
     test_item = 10**6 + 1  # This item is not in our set or list
 
     # TODO: Time the 100 consecutive operations of checking whether `test_item` is in `data_set` and print the result and time taken
+    start_time = time.time()
+    for i in range(100):
+        test_item in data_set
+    print(f"Searching in the Hash Set Took: {time.time() - start_time}")
 
     # TODO: Time the 100 consecutive operations of checking whether `test_item` is in `data_list` and print the result and time taken
+    start_time = time.time()
+    for i in range(100):
+        test_item in data_list
+    print(f"Searching in the List Took: {time.time() - start_time}")
 
 # Execute the function
 compare_operations()
