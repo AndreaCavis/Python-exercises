@@ -83,5 +83,22 @@ When Python sees: v1 + v2   it actually calls: v1.__add__(v2).
 The + operator has been overloaded for the Vector type.
 '''
 
-
+'''
+Common overloaded operators
+Operator	Special method
++	    __add__
+-	    __sub__
+*	    __mul__
+/	    __truediv__
+==	  __eq__	  equal
+!=	  __ne__	  not equal
+<   	__lt__	  less than
+<=	  __le__	  less or equal
+>	    __gt__	  greater than
+>=	  __ge__	  greater or equal
+&   	__and__
+|	    __or__
+[]	  __getitem__
+()	  __call__
+'''
 
