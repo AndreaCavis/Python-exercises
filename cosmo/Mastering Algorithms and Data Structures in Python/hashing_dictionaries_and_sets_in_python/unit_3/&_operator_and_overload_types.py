@@ -50,5 +50,38 @@ try:
 except Exception as error:
     print(f"{error}. & evaluates the second condition instead of stopping like and and avoiding the error")
 
+''' and is for logical expressions; & is for bitwise operations (and some overloaded types like sets and NumPy arrays).'''
+
+
+# --------------------+ OVERLOADED TYPES +-------------------- #
+'''
+An overloaded type isn't a formal Python type category. Usually, when people mention it, 
+they mean a type that has OVERLOADED OPERATORS
+that is, it defines CUSTOM BEHAVIOUR for OPERATORS like +, -, &, *, ==, etc.
+
+Python lets classes decide what operators do by implementing special methods.
+For example:
+'''
+class Vector:
+    def __init__(self, x, y) -> None:
+        self.x = x
+        self.y = y
+
+    # OVERLOADED OPERATOR +
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    # without __str__ you'll get the memory access to the result instead of the string
+    def __str__(self) -> str:
+        return f"Vector({self.x}, {self.y})"
+    
+v1 = Vector(1, 2)
+v2 = Vector(3, 4)
+print(v1 + v2)
+'''
+When Python sees: v1 + v2   it actually calls: v1.__add__(v2).
+The + operator has been overloaded for the Vector type.
+'''
+
 
 
