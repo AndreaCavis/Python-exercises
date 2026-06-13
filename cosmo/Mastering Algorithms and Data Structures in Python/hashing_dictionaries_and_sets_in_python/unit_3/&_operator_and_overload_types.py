@@ -97,7 +97,6 @@ Operator	Special method
 >	    __gt__	  greater than
 >=	  __ge__	  greater or equal
 &   	__and__
-|	    __or__
 []	  __getitem__
 ()	  __call__
 '''
