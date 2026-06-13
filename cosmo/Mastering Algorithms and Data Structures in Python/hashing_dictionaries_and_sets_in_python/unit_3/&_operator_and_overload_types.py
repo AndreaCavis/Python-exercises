@@ -31,5 +31,24 @@ a = {1, 2, 3}
 b = {2, 3, 4}
 
 print(f"a & b is the intersection between {1, 2, 3} & {2, 3, 4}, returning {a & b}")  # {2, 3}
+'''
+3. Boolean values
+Since True and False are integers (1 and 0), & works on them. # print(True & False) returns False, etc
+
+However, for LOGICAL CONDITIONS, prefer 'and' because 'and' short-circuits, meanwhile '&' evaluates both sides.
+'''
+x = 0
+
+# Logical AND
+if x != 0 and 10 / x > 1:
+    pass  # safe 
+
+# Bitwise AND
+try:
+    if (x != 0) & (10 / x > 1):
+        pass # raises ZeroDivisionError
+except Exception as error:
+    print(f"{error}. & evaluates the second condition instead of stopping like and and avoiding the error")
+
 
 
