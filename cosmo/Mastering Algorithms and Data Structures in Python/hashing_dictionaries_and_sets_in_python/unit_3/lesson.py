@@ -7,8 +7,9 @@ def array_intersection(list1: list, list2: list) -> list :
 
 # output: [2, 3]
 print(array_intersection([1,2,3], [60,20,3,4,7,2]))
-# output: []
-print(array_intersection([1,2,3], [4,5,6]))
+
+# output: [1,5,9]
+print(array_intersection([x for x in range(10)], [1,20,5,9,11]))
 
 
 '''Problem 2: Non-Repeating Elements'''
