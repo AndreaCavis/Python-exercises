@@ -1,3 +1,5 @@
+# NOTE: Common overloaded operators at the bottom
+
 '''
 In Python, the & operator is the bitwise AND operator.
 It compares the bits of two integers and returns a new integer whose bits are set to 1 only where both operands have 1.
@@ -83,9 +85,10 @@ When Python sees: v1 + v2   it actually calls: v1.__add__(v2).
 The + operator has been overloaded for the Vector type.
 '''
 
+
 '''
-Common overloaded operators
-Operator	Special method
+COMMON OVERLOADED OPERATORS:
+
 +	    __add__
 -	    __sub__
 *	    __mul__
@@ -101,4 +104,3 @@ Operator	Special method
 []	  __getitem__
 ()	  __call__
 '''
-
