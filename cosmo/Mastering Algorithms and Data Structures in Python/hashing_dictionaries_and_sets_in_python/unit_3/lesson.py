@@ -4,5 +4,5 @@ def array_intersection(list1: list, list2: list) -> list :
     intersection = set(list1) & set(list2)
     return sorted(list(intersection))
 
-
+print(array_intersection([1,2,3], [4,5,6]))
 '''Problem 2: Non-Repeating Elements'''
