@@ -1,6 +1,12 @@
 '''Problem 1: Array Intersection'''
 
 def array_intersection(list1: list, list2: list) -> list :
+    set1 = set(list1)
+    set2 = set(list2)
+    intersection = set1 & set2
+    return sorted(list(intersection))
+
+def array_intersection_optimised(list1: list, list2: list) -> list :
     intersection = set(list1) & set(list2)
     return sorted(list(intersection))
 
