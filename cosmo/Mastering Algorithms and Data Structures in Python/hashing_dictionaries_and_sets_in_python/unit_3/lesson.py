@@ -1,3 +1,5 @@
+# https://codesignal.com/learn/course/10/unit/3 for reference
+
 ''' Problem 1: Array Intersection
 
 Our journey begins with the challenge of identifying the intersection of two arrays. 
