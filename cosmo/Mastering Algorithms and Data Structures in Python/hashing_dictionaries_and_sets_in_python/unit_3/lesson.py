@@ -20,6 +20,7 @@ def array_intersection_optimised(list1: list, list2: list) -> list :
 print(array_intersection([x for x in range(0,100,10) if x % 20 == 0], [x*10 for x in range(10)]))
 
 
+
 ''' Problem 2: Non-Repeating Elements 
 Our next issue is slightly more complex. We must determine all elements in a given list that appear only once,
 meaning they don't have any duplicates in the same list. '''
@@ -34,6 +35,7 @@ def non_repeating_elements(nums: list) -> list:
             seen.add(num)
 
     return list(seen - repeated)
+
 
 
 ''' Problem 3: Unique Elements 
