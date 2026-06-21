@@ -33,6 +33,7 @@ Your goal is to find these pairs of anagram words to decipher the code. '''
 def solution(list_1: list, list_2: list):
     # Convert every word in sorted(tuple(word)) (aka, Anagram) for a unified form of all anagrams
     sorted_tuples_1 = set(tuple(sorted(word)) for word in list_1)
+    # NOTE: tuples are needed to avoid TypeError on keys since list are mutable and unhashable
     sorted_tuples_2 = set(tuple(sorted(word)) for word in list_2)
     
     # Find the common_tuples between the 2 sets, representing the anagrams
@@ -54,6 +55,8 @@ def solution(list_1: list, list_2: list):
     return output
 
 print(solution(['cinema', 'iceman'], ['iceman', 'cinema']))
+
+
 
 ''' Problem 2: Solution with Dictionaries (Optional) '''
 from collections import defaultdict
@@ -87,3 +90,5 @@ def solution_dictionary(list_1, list_2):
                 output.append((word1, word2))
 
     return output
+
+print(solution_dictionary(['cinema', 'iceman'], ['iceman', 'cinema']))

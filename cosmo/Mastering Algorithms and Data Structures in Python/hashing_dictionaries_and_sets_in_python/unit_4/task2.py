@@ -13,22 +13,19 @@ It's time to go where no programmer has gone before boldly. Happy coding!
 '''
 
 def find_anagram_words(list_1: list[str], list_2: list[str]) -> list[str]:
-    sorted_tuples_1 = set(tuple(sorted(word)) for word in list_1)
-    sorted_tuples_2 = set(tuple(sorted(word)) for word in list_2)
+    # NOTE: tuple is needed because list are mutable and unhashable, they cannot be dict keys
+    set_1_anagrams = set(tuple(sorted(word)) for word in list_1)
+    set_2_anagrams = set(tuple(sorted(word)) for word in list_2)
 
-    test = []
+    common_anagrams = set_1_anagrams & set_2_anagrams
+
+    res = set()
     for word in list_1:
-        test.append("".join(sorted(word)))
+        if tuple(sorted(word)) in common_anagrams:
+            res.add(word)
 
-    
-    common_words = sorted_tuples_1 & sorted_tuples_2
+    return list(res)
 
-    res = []
-    for word in list_1:
-        if tuple(sorted(word)) in common_words:
-            res.append(word)
-
-    return res
 
 print(find_anagram_words(['cinema', 'iceman'], ['iceman', 'cinema'])) # should return ['cinema', 'iceman']
 print(find_anagram_words(['test', 'stet'], ['tent', 'nett'])) # should return []
