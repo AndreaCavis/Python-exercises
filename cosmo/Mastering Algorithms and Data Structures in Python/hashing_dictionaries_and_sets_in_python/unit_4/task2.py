@@ -12,9 +12,20 @@ As for edge cases, watch out for case sensitivity and one-letter words!
 It's time to go where no programmer has gone before boldly. Happy coding!
 '''
 
-def find_anagram_words(list_1, list_2):
-    # implement this
-    pass
+def find_anagram_words(list_1: list[str], list_2: list[str]) -> list[str]:
+    # NOTE: tuple is needed because list are mutable and unhashable, they cannot be dict keys
+    set_1_anagrams = set(tuple(sorted(word)) for word in list_1)
+    set_2_anagrams = set(tuple(sorted(word)) for word in list_2)
+
+    common_anagrams = set_1_anagrams & set_2_anagrams
+
+    res = set()
+    for word in list_1:
+        if tuple(sorted(word)) in common_anagrams:
+            res.add(word)
+
+    return list(res)
+
 
 print(find_anagram_words(['cinema', 'iceman'], ['iceman', 'cinema'])) # should return ['cinema', 'iceman']
 print(find_anagram_words(['test', 'stet'], ['tent', 'nett'])) # should return []
