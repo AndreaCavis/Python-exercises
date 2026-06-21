@@ -12,9 +12,23 @@ As for edge cases, watch out for case sensitivity and one-letter words!
 It's time to go where no programmer has gone before boldly. Happy coding!
 '''
 
-def find_anagram_words(list_1, list_2):
-    # implement this
-    pass
+def find_anagram_words(list_1: list[str], list_2: list[str]) -> list[str]:
+    sorted_tuples_1 = set(tuple(sorted(word)) for word in list_1)
+    sorted_tuples_2 = set(tuple(sorted(word)) for word in list_2)
+
+    test = []
+    for word in list_1:
+        test.append("".join(sorted(word)))
+
+    
+    common_words = sorted_tuples_1 & sorted_tuples_2
+
+    res = []
+    for word in list_1:
+        if tuple(sorted(word)) in common_words:
+            res.append(word)
+
+    return res
 
 print(find_anagram_words(['cinema', 'iceman'], ['iceman', 'cinema'])) # should return ['cinema', 'iceman']
 print(find_anagram_words(['test', 'stet'], ['tent', 'nett'])) # should return []
