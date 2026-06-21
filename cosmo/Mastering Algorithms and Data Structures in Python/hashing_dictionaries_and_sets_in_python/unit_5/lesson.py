@@ -1,4 +1,4 @@
-'''Understanding Hash Tables
+''' Understanding Hash Tables
 
 As we delve into the world of hash tables, let's start by understanding their underlying structure. 
 A hash table consists of an array (the actual table where data is stored), coupled with a hash function. 
@@ -14,6 +14,7 @@ but this particular interface makes it less easy to use, so Python has a concept
 Let's visualize this with a Python dictionary, which operates on the same principle. 
 Suppose we have a dictionary containing student names as keys and their corresponding scores as values: '''
 
+print("Understanding Hash Tables:")
 # A simple dictionary illustrating the principle of hashing
 student_scores = { 'Tom': 85, 'Serena': 92, 'Alex': 78, 'Nina': 88 }
 
@@ -32,7 +33,7 @@ Under the hood, the Python interpreter uses a hash function to assign each key-v
 
 
 
-'''Collision Handling in Hash Tables
+''' Collision Handling in Hash Tables
 
 There are instances when two different keys produce the same index after being processed through the hash function. 
 This situation is known as a collision. When a collision occurs, 
@@ -48,7 +49,7 @@ Here are two common strategies to handle such scenarios:
     Upon encountering a collision, the hash table searches for another free slot or index in the table (possibly the next available empty slot)
     and assigns that location to the new key-value pair. This approach requires a suitable probing strategy to ensure efficient use of table space. 
     
-The image below provides a visual example of Chaining collision resolving method (// you'll have to imagine this one) 
+The image below provides a visual example of Chaining collision resolving method (// Unavailable chaining example image) 
 John Smith and Sandra Dee have the same hash function result, so their entries are organized in a linked list in the corresponding bucket.
 
 (basically 5 names are stored in different buckets, each index marked with an integer. Both John Smith and Sandra Dee share the index 152.
@@ -56,7 +57,7 @@ Therefore, when accessing 152, you'll find a linked list with both values, at le
 '''
 
 
-'''Time and Space Complexity Analysis for Hash Tables
+''' Time and Space Complexity Analysis for Hash Tables
 
 Hash tables are renowned for their efficiency and speed when it comes to data storage and retrieval. 
 They boast constant time complexity O(1) for the operations on key-value pairs - insertion, deletion, and retrieval. 
@@ -68,3 +69,32 @@ Such situations could deteriorate the table's efficiency and extend the time com
 where n is the number of keys hashing to the same index. '''
 
 
+''' Working with Hash Tables in Python - Dictionaries
+
+Python provides a built-in implementation of hash tables, known as dictionaries. Dictionaries in Python work similarly to hash tables. 
+They allow the use of arbitrary keys to access values and handle collisions seamlessly behind the scenes, 
+ensuring consistent and quick access to stored data.
+
+You can create a dictionary with key-value pairs, access values using keys, and perform various operations 
+such as adding new key-value pairs and deleting them, as demonstrated below: '''
+
+print("\nWorking with Hash Tables in Python - Dictionaries")
+# Create a Python dictionary similar to a Hash Table
+book_ratings = {"Moby-Dick": 8, "The Great Gatsby": 9, "War and Peace": 10, "The Catcher in the Rye": 8}
+
+# Access a value with its key. This happens in O(1) time
+print(book_ratings["Moby-Dick"])   # Outputs: 8
+# Another way to access a value with its key is by providing the default value if the key is not there. Complexity is also O(1).
+print(book_ratings.get("Moby-Dick", 0)) # Outputs: 8
+print(book_ratings.get("Moby Dick", 0)) # Outputs: 0
+
+# Add a new key-value pair. The addition operation is also O(1)
+book_ratings["To Kill a Mockingbird"] = 9
+book_ratings["The Great Gatsby"] = 8
+print(book_ratings)
+# Outputs: {"Moby-Dick": 8, "The Great Gatsby": 8, "War and Peace": 10, "The Catcher in the Rye": 8, "To Kill a Mockingbird": 9}
+
+# Remove a key-value pair. Deletion is also a constant time operation
+del book_ratings["War and Peace"]
+print(book_ratings)
+# Outputs: {"Moby-Dick": 8, "The Great Gatsby": 9, "The Catcher in the Rye": 8, "To Kill a Mockingbird": 9}
