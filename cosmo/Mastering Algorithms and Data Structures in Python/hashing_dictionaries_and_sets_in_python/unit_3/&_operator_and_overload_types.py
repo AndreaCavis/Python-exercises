@@ -82,7 +82,7 @@ class Vector:
     
 v1 = Vector(1, 2)
 v2 = Vector(3, 4)
-print(v1 + v2)
+print(v1 + v2) # output: Vector(4, 6)
 '''
 When Python sees: v1 + v2   it actually calls: v1.__add__(v2).
 The + operator has been overloaded for the Vector type.
