@@ -38,10 +38,34 @@ def frequent_words_finder(text: str) -> list:
 
 print(frequent_words_finder(text))
 
-'''
-The function begins by converting the entire text to lowercase. This standardizes the text and ensures that words are not treated as different due to case sensitivity. Next, the function uses the defaultdict from the collections module to store each word's frequency. A defaultdict is a dictionary that provides a default value for a key that does not exist. Instead of raising a KeyError, it provides a default value, making it perfect for our use case. For the int type, the default value will be 0.
+''' The function begins by converting the entire text to lowercase. This standardizes the text and ensures that words are not treated as different due to case sensitivity.
+Next, the function uses the defaultdict from the collections module to store each word's frequency. 
+A defaultdict is a dictionary that provides a default value for a key that does not exist.
+Instead of raising a KeyError, it provides a default value, making it perfect for our use case. For the int type, the default value will be 0.
 
-After splitting the text into individual words, the function then iterates over the list of words, adding each word to the defaultdict and incrementing the count at every occurrence. Finally, using the sorted function on the dictionary entries, it returns a list of the three words with the highest frequency.
+After splitting the text into individual words, the function then iterates over the list of words, 
+adding each word to the defaultdict and incrementing the count at every occurrence. 
+Finally, using the sorted function on the dictionary entries, it returns a list of the three words with the highest frequency.
 
-The time complexity of this solution is O(N), which is much better than the naive approach we discussed at the beginning.
+The time complexity of this solution is O(N), which is much better than the naive approach we discussed at the beginning. '''
+
+
+''' Problem 2: Password Strength Counter
+
+As an application developer, ensuring the security of user data is pivotal. A common measure to ensure robust security is testing the strength of passwords. 
+A 'strong' password is usually defined as one that is long (at least 8 characters) and includes a mix of uppercase characters, lowercase characters, and digits.
+
+Naive Approach:
+Initially, you might think of checking each condition separately. For example, you could use four separate 'for' loops to iterate over the password string to check for each condition, 
+i.e., length and the presence of digits, lowercase letters, and uppercase letters. But we know that this approach doesn't scale well. 
+Imagine having a password that's hundreds of characters long. Iterating over it four times is unnecessary and, therefore, inefficient.
+
+Efficient Approach Explanation:
+A more polished and less time-consuming solution would be to traverse the password string just once while checking for all conditions. 
+As we check each character, we can update a dictionary where each condition is a key, 
+and its fulfillment (True or False) is the corresponding value. This approach enables us to keep the code both elegant and efficient, 
+making the best use of Python dictionaries.
+
+Solution Building:
+Now, it's time to implement this efficient solution with some Python code.
 '''
