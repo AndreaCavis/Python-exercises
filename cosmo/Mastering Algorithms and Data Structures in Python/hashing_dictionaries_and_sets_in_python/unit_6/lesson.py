@@ -34,7 +34,7 @@ def frequent_words_finder(text: str) -> list:
 
     top_three = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:3]
 
-    return [x[0]for x in top_three]
+    return top_three # [x[0]for x in top_three] for words only
 
 print(frequent_words_finder(text))
 
@@ -48,6 +48,7 @@ adding each word to the defaultdict and incrementing the count at every occurren
 Finally, using the sorted function on the dictionary entries, it returns a list of the three words with the highest frequency.
 
 The time complexity of this solution is O(N), which is much better than the naive approach we discussed at the beginning. '''
+
 
 
 ''' Problem 2: Password Strength Counter
@@ -69,3 +70,90 @@ making the best use of Python dictionaries.
 Solution Building:
 Now, it's time to implement this efficient solution with some Python code.
 '''
+
+def password_strenght_counter(password: str) -> dict[str, bool]:
+    strength = {
+        'length': False,
+        'digit': False,
+        'lowercase': False,
+        'uppercase': False,
+    }
+
+    if len(password) > 8:
+        strength['length'] = True
+
+    for char in password:
+        if char.isdigit():
+            strength['digit'] = True
+        if char.islower():
+            strength['lowercase'] = True
+        if char.isupper():
+            strength['uppercase'] = True
+        
+
+    return strength
+
+# alternative function with any()
+def password_strenght_counter_v2(password: str) -> dict[str, bool]:
+    return {
+        "length":len(password) > 8,
+        "digit":any(char.isdigit() for char in password),
+        "lowercase": any(char.islower() for char in password),
+        "uppercase": any(char.isupper() for char in password),
+    }
+
+''' The function begins by initializing a dictionary strength to hold the results of each condition. 
+The keys of the dictionary are the conditions, and their corresponding values are boolean flags initialized as False, 
+representing that the conditions are not met initially.
+
+First, the function checks the length of the password. If it is 8 characters or more, the 'length' key in the dictionary is updated to True. 
+The function then iterates over every character in the password, checking whether it is a digit, a lowercase letter, or an uppercase letter. 
+For each character that meets a condition, the corresponding key in the strength dictionary is updated to True. 
+At the end of the process, the function returns the strength dictionary, indicating which conditions the password meets and which it doesn't. '''
+
+
+
+''' Problem 3: Bonus Calculator
+
+As a software developer in an HR or Finance team, you might need to work on tasks related to personnel management. 
+For instance, suppose your firm has just approved a new policy to give all developers a bonus equal to 10% of their salary. 
+Your task is to update the database to reflect this new policy.
+
+Naive Approach:
+An initial thought might be to create a new list of dictionaries, where each dictionary contains an employee's information 
+and the calculated bonus if the employee's role is 'developer'. However, creating a new list and new dictionaries would represent
+an unnecessary allocation of extra memory. Besides, copying data may risk data inconsistency if the original data is updated during 
+the process. Therefore, we need to find a method that doesn't involve duplicating our data.
+
+Efficient Approach Explanation:
+An efficient approach here is to add a 'bonus' field to the dictionary of each employee who is a developer, updating the ones 
+we already have instead of creating new dictionaries. Therefore, we can avoid duplicating the data list.
+
+Solution Building:
+Here's how we put this strategy into action using Python code. '''
+
+def bonus_calculator(employees):
+    for employee in employees:
+        bonus = 0
+
+        if employee['role'] == 'developer':
+            bonus = employee['salary'] * 0.1
+        
+        employee['bonus'] = bonus
+    return employees
+
+''' The function starts by iterating over the list of employees. Each employee is represented by a dictionary, and the function 
+accesses the 'role' and 'salary' fields of each dictionary. If an employee is a developer, a bonus field, calculated as 10% of their salary, 
+is added to their dictionary. Finally, the function returns the updated list of employees. '''
+
+
+
+''' Lesson Summary: 
+
+Today, we've observed Python dictionaries in action, helping solve an array of practical problems. 
+From analyzing large text data to validating password strength and managing personnel data through list updates - we've seen 
+how Python dictionaries offer an elegant and efficient solution in all these scenarios. We've observed how these attributes 
+of Python dictionaries come in handy, especially when dealing with large datasets, where computational efficiency is vitally important.
+
+Stay tuned! In our upcoming lessons, we will dive deeper into the systematic study of data structures, algorithms, and computational problem-solving. 
+This will further equip you with the fundamentals of computer science and software engineering. Until then, happy programming! '''
