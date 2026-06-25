@@ -34,7 +34,7 @@ def frequent_words_finder(text: str) -> list:
 
     top_three = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:3]
 
-    return [x[0]for x in top_three]
+    return top_three # [x[0]for x in top_three] for words only
 
 print(frequent_words_finder(text))
 
@@ -48,6 +48,7 @@ adding each word to the defaultdict and incrementing the count at every occurren
 Finally, using the sorted function on the dictionary entries, it returns a list of the three words with the highest frequency.
 
 The time complexity of this solution is O(N), which is much better than the naive approach we discussed at the beginning. '''
+
 
 
 ''' Problem 2: Password Strength Counter
@@ -69,3 +70,25 @@ making the best use of Python dictionaries.
 Solution Building:
 Now, it's time to implement this efficient solution with some Python code.
 '''
+
+def password_strenght_counter(password: str) -> dict[str, bool]:
+    strength = {
+        'length': False,
+        'digit': False,
+        'lowercase': False,
+        'uppercase': False,
+    }
+
+    if len(password) > 8:
+        strength['length'] = True
+
+    for char in password:
+        if char.isdigit():
+            strength['digit'] = True
+        if char.islower():
+            strength['lowercase'] = True
+        if char.isupper():
+            strength['uppercase'] = True
+        
+
+    return strength
