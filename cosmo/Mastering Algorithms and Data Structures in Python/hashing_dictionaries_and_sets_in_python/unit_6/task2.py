@@ -9,7 +9,7 @@ The value for each key will be a Boolean indicating whether the password meets a
 has at least 8 characters for 'length', contains a digit for 'digit', contains an uppercase letter for 'uppercase', 
 contains a lowercase letter for 'lowercase', and contains a special character (one of "!@#$%^&*()-+") for 'special_char'.
 
-Get ready to dive into the world of security analysis – this is where the real fun begins!
+Get ready to dive into the world of security analysis - this is where the real fun begins!
 '''
 
 def multi_password_strength_counter(passwords: list[str]) -> list[dict[str,bool]]:
